@@ -1,0 +1,137 @@
+// Header
+
+.navbar-default  {
+    background-color: #fff;
+    border: none;
+    .navbar-header {
+        .navbar-brand {
+            background: url('../img/pds-logo.gif') no-repeat 10px center @pds-blue;
+            min-height: 120px;
+            min-width: 124px;
+            padding: 10px;
+            box-sizing: content-box;
+            &:hover,&:focus {
+                background-color: @pds-blue;    
+            }
+        }
+        .navbar-brand-name {
+            float: left;
+            line-height: 40px;
+            font-size: 30px;
+            padding: 10px;
+            width: 100px;
+            color: @pds-light-blue;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    nav.navbar-collapse {
+        position: relative;
+        ul.nav {
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            a {
+                color: @pds-blue;
+                &:hover {
+                    background-color: #ccc;
+                }
+            }
+        }
+        &.in ul.nav, &.collapsing ul.nav {
+            position: initial;
+        }
+    }
+}
+
+// Footer
+
+footer {
+    padding-top: 20px;
+    .container {
+        background-color: #eee;
+        .nav > li > a {
+            display: inline-block;
+            color: @pds-blue;
+            padding: 5px 15px;
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+}
+
+// Home page
+
+#home-main {
+    margin: 20px 0;
+    overflow: hidden;
+    p {
+        font-size: 18px;
+    }
+    a.home-cta {
+        margin-top: 60px;
+        margin-bottom: 40px;
+        background-repeat: no-repeat;
+        background-position: 0% 50%;
+        background-size: 100% auto;
+        line-height: 36px;
+        font-size: 36px;
+        color: white;
+        color: rgba(255,255,255,0.8);
+        height: 253px;
+        /*max-width: 380px;*/
+        display: table;
+        position: static;
+        text-align: center;
+        padding: 10px;
+        &.home-solicitors {
+            background-image: url('../img/home-solicitors.jpg');
+        }
+        &.home-advocacy {
+            background-image: url('../img/home-advocacy.jpg');
+        }
+        .middle {
+            display: table-cell;
+            vertical-align: bottom;
+            width: 100%;
+            position: static;
+            .inner {
+                position: static;
+                font-weight: bold;
+                background-color: rgba(0,0,0,0.4);
+                padding: 5px;
+            }
+        }
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+// Advocates homepage
+
+#advocates-slider {
+    width: 100%;
+    overflow: hidden;
+    .slide-image {
+        width: 25%;
+        float: left;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+// Our Advocates page
+
+article.advocate-bio {
+    .advocate-picture {
+        width: 100%;
+    }
+    .advocate-name {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+}

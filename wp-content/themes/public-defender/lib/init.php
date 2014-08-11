@@ -13,6 +13,7 @@ function roots_setup() {
     register_nav_menus(array(
         'primary_navigation_advocates' => __('Primary Navigation - Advocates', 'roots'),
         'primary_navigation_solicitors' => __('Primary Navigation - Solicitors', 'roots'),
+        'primary_navigation_home' => __('Primary Navigation - Home', 'roots'),
         'footer_navigation' => __('Footer Navigation', 'roots')
     ));
 

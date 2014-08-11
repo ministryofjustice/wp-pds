@@ -8,7 +8,8 @@
     ?>
     <section id="footer-newsletter" class="container">
         <div class="col-md-7">
-            Newsletter
+            <h2>Newsletter</h2>
+            Sign up to join our newsletter. Stay up-to-date by email.
         </div>
         <div class="col-md-5">
             <button>Sign up for the newsletter</button>

@@ -1,14 +1,40 @@
+// General
+
+h1 {
+    font-family: Ubuntu;
+    font-weight: 700;
+    color: #142452;
+    font-size: 36px;
+}
+
+h2 {
+    font-family: Ubuntu;
+    font-weight: 700;
+    color: #142452;
+    font-size: 26px;
+}
+
 // Header
 
+body {
+    font-family: Roboto;
+}
+
 .navbar-default  {
+    height: 140px;
     background-color: #fff;
+    margin:0;
     border: none;
+    .container {
+        border-bottom: 1px solid #A5ACC1;
+    }
     .navbar-header {
         .navbar-brand {
             background: url('../img/pds-logo.gif') no-repeat 10px center @pds-blue;
             min-height: 120px;
             min-width: 124px;
             padding: 10px;
+            margin-left: 25px;
             box-sizing: content-box;
             &:hover,&:focus {
                 background-color: @pds-blue;    
@@ -60,79 +86,193 @@ footer {
             }
         }
     }
+    #footer-newsletter {
+        background-color: #7786A4;
+        height: 120px;
+        line-height: 120px;
+        color: #fff;
+        font-size: 32px;
+        font-weight: 500;
+        .col-md-7 {
+            padding-left: 25px;
+        }
+        .col-md-5 {
+            padding-right: 25px;
+        }
+        button {
+            line-height: 60px;
+            border: none;
+            background-color: #f0b432;
+            font-weight: 700;
+            width: 100%;
+            font-size: 24px;
+            text-transform: uppercase;
+            padding: 0;
+        }
+    }
+    #footer-contact {
+        padding-top: 80px;
+        padding-bottom: 10px;
+        background-color: #142452;
+        color: #fff;
+        h3 {
+            font-family: Ubuntu;
+            color: #f0b432;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    }
 }
 
 // Home page
 
 #home-main {
-    margin: 20px 0;
+    margin: 0;
     overflow: hidden;
     p {
         font-size: 18px;
     }
-    a.home-cta {
-        margin-top: 60px;
-        margin-bottom: 40px;
-        background-repeat: no-repeat;
-        background-position: 0% 50%;
-        background-size: 100% auto;
-        line-height: 36px;
-        font-size: 36px;
-        color: white;
-        color: rgba(255,255,255,0.8);
-        height: 253px;
-        /*max-width: 380px;*/
-        display: table;
-        position: static;
-        text-align: center;
-        padding: 10px;
-        &.home-solicitors {
-            background-image: url('../img/home-solicitors.jpg');
+    #welcome {
+        border-bottom: 1px solid #A5ACC1;
+        background: url('../img/stock-photo-44883040-the-supreme-court-mod.jpg') no-repeat right center;
+        height: 340px;
+        color: #6C6C6C;
+        font-weight: 300;
+        h1 {
+            margin: 40px 0;
+            font-family: 'Ubuntu';
+            font-weight: 900;
+            font-size: 32px;
+            color: #364773;
+            padding: 0 40px;
         }
-        &.home-advocacy {
-            background-image: url('../img/home-advocacy.jpg');
+        div p {
+            padding: 0 25px 10px;
+            line-height: 22px;
         }
-        .middle {
-            display: table-cell;
-            vertical-align: bottom;
-            width: 100%;
+    }
+    #home-ctas {
+        padding-left: 40px;
+        padding-right: 40px;
+        a.home-cta {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            background-repeat: no-repeat;
+            background-position: 0% 50%;
+            background-size: 100% auto;
+            line-height: 36px;
+            font-family: 'Ubuntu';
+            font-weight: 900;
+            font-size: 36px;
+            color: #fff;
+            height: 360px;
+            width: 50%;
+            display: table;
             position: static;
-            .inner {
-                position: static;
-                font-weight: bold;
-                background-color: rgba(0,0,0,0.4);
-                padding: 5px;
+            text-align: center;
+            padding: 10px;
+            float: left;
+            &.home-solicitors {
+                background-image: url('../img/home-solicitors-mod.jpg');
+                border-right: 5px solid transparent;
             }
-        }
-        &:hover {
-            text-decoration: none;
+            &.home-advocacy {
+                background-image: url('../img/home-advocacy-mod.jpg');
+                border-left: 5px solid transparent;
+            }
+            .middle {
+                display: table-header-group;
+                vertical-align: middle;
+                width: 100%;
+                position: static;
+                .inner {
+                    position: static;
+                    font-weight: bold;
+                    padding: 20% 5px;
+                }
+            }
+            &:hover {
+                text-decoration: none;
+                .inner {
+                    background-color: rgba(255,255,255,0.75);
+                }
+                &.home-solicitors {
+                    color: #142452;
+                }
+                &.home-advocacy {
+                    color: #f0b432;
+                }
+
+            }
         }
     }
 }
 
 // Advocates homepage
 
+#advocates-header {
+    background: url('../img/our-advocates.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 200px;
+    line-height: 200px;
+    font-family: Ubuntu;
+    font-size: 96px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 300;
+    padding: 0 40px;
+}
+#advocates-slider-container {
+    border-top: 1px solid #f0b432;
+    border-bottom: 1px solid #f0b432;
+    padding: 15px 0;
+}
 #advocates-slider {
     width: 100%;
     overflow: hidden;
+    position: relative;
     .slide-image {
         width: 25%;
         float: left;
+        text-align: center;
         img {
-            width: 100%;
+            height: 190px;
+        }
+        .slide-info {
+            text-align: left;
+            position: absolute;
+            bottom: -100px;
+            width: 285px;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 5px;
+            margin-left: 4px;
         }
     }
 }
+#advocates-news {
+    background: #DFDFDF;
+    margin-top: 20px;
+}
+
 
 // Our Advocates page
 
-article.advocate-bio {
-    .advocate-picture {
-        width: 100%;
-    }
-    .advocate-name {
-        font-weight: bold;
-        font-size: 1.2em;
+#advocates-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    article.advocate-bio {
+        height: 330px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .advocate-picture {
+            width: 100%;
+        }
+        .advocate-name {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
     }
 }
 
@@ -143,4 +283,20 @@ article.advocate-bio {
         padding: 0 10px;
         vertical-align: top;
     }
+}
+
+// Solicitors homepage
+
+#advocates-header {
+    background: url('../img/pds-solicitors.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 200px;
+    line-height: 200px;
+    font-family: Ubuntu;
+    font-size: 96px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 300;
+    padding: 0 40px;
 }

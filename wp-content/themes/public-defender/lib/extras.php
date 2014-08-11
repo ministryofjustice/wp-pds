@@ -37,3 +37,23 @@ function is_tree($pid) {
         return false;
     }
 }
+
+/* Setup option tree */
+add_filter( 'ot_theme_mode', '__return_true' );
+add_filter( 'ot_show_pages', '__return_false' );
+add_filter( 'ot_show_new_layout', '__return_false' );
+add_filter( 'ot_use_theme_options', '__return_false' );
+
+add_filter( 'ot_header_version_text', '__return_null' );
+
+//load_template( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
+require_once (trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php');
+
+/**
+ * Meta Boxes
+ */
+load_template( trailingslashit( get_template_directory() ) . 'lib/meta-boxes.php' );
+
+// Set image size
+add_image_size('advocate_slide',285,190,true);
+add_image_size('advocate_slide_thumb',160,190,true);

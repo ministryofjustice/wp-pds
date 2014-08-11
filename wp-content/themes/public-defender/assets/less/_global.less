@@ -1,10 +1,15 @@
 // General
 
+main {
+    margin: 0 40px;
+}
+
 h1 {
     font-family: Ubuntu;
     font-weight: 700;
     color: #142452;
     font-size: 36px;
+    /*padding: 0 40px;*/
 }
 
 h2 {
@@ -31,11 +36,13 @@ body {
     .navbar-header {
         .navbar-brand {
             background: url('../img/pds-logo.gif') no-repeat 10px center @pds-blue;
-            min-height: 120px;
-            min-width: 124px;
-            padding: 10px;
+            min-height: 100px;
+            min-width: 100px;
+            padding: 5px;
             margin-left: 25px;
             box-sizing: content-box;
+            background-size: 80%;
+            margin-top: 15px;
             &:hover,&:focus {
                 background-color: @pds-blue;    
             }
@@ -111,8 +118,7 @@ footer {
         }
     }
     #footer-contact {
-        padding-top: 80px;
-        padding-bottom: 10px;
+        padding: 80px 25px 10px;
         background-color: #142452;
         color: #fff;
         h3 {
@@ -128,7 +134,6 @@ footer {
 
 #home-main {
     margin: 0;
-    overflow: hidden;
     p {
         font-size: 18px;
     }
@@ -138,8 +143,8 @@ footer {
         height: 340px;
         color: #6C6C6C;
         font-weight: 300;
+        margin: 0 -40px;
         h1 {
-            margin: 40px 0;
             font-family: 'Ubuntu';
             font-weight: 900;
             font-size: 32px;
@@ -208,21 +213,38 @@ footer {
     }
 }
 
-// Advocates homepage
-
-#advocates-header {
-    background: url('../img/our-advocates.jpg') no-repeat center center;
-    background-size: 100% 100%;
-    width: 100%;
+// Common page elements
+.advocate-pages {
+    #page-header {
+        background: url('../img/our-advocates.jpg') no-repeat center center;
+        background-size: 100% 100%;
+    }
+    h1 {
+        color: #142452;
+    }
+}
+.solicitors-pages {
+    #page-header {
+        background: url('../img/pds-solicitors.jpg') no-repeat center center;
+        background-size: 100% 100%;
+    }
+    h1 {
+        color: #f0b432;
+    }
+}
+#page-header {
     height: 200px;
     line-height: 200px;
     font-family: Ubuntu;
     font-size: 96px;
     color: white;
-    margin-bottom: 20px;
+    margin: 0 -40px 20px;
     font-weight: 300;
     padding: 0 40px;
 }
+
+// Advocates homepage
+
 #advocates-slider-container {
     border-top: 1px solid #f0b432;
     border-bottom: 1px solid #f0b432;
@@ -243,7 +265,7 @@ footer {
             text-align: left;
             position: absolute;
             bottom: -100px;
-            width: 285px;
+            width: 265px;
             background-color: rgba(0,0,0,0.5);
             color: white;
             padding: 5px;
@@ -251,9 +273,14 @@ footer {
         }
     }
 }
+#advocates-about {
+    margin-left: -15px;
+}
 #advocates-news {
     background: #DFDFDF;
     margin-top: 20px;
+    padding-right: 40px;
+    margin-left: 15px
 }
 
 
@@ -263,7 +290,7 @@ footer {
     padding-top: 40px;
     padding-bottom: 40px;
     article.advocate-bio {
-        height: 330px;
+        height: 375px;
         padding-top: 10px;
         padding-bottom: 10px;
         .advocate-picture {
@@ -283,20 +310,4 @@ footer {
         padding: 0 10px;
         vertical-align: top;
     }
-}
-
-// Solicitors homepage
-
-#advocates-header {
-    background: url('../img/pds-solicitors.jpg') no-repeat center center;
-    background-size: 100% 100%;
-    width: 100%;
-    height: 200px;
-    line-height: 200px;
-    font-family: Ubuntu;
-    font-size: 96px;
-    color: white;
-    margin-bottom: 20px;
-    font-weight: 300;
-    padding: 0 40px;
 }

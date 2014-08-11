@@ -1,4 +1,4 @@
-<div id="advocates-header">PDS Advocacy Unit</div>
+<div id="page-header">PDS Advocacy Unit</div>
 
 <h1>Advocates Home</h1>
 

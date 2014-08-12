@@ -1,5 +1,7 @@
+<div id="page-header"></div>
+<h1><?php the_title(); ?></h1>
 <div id="advocates-container">
-    <row id="advocates">
+    <div class="row" id="advocates">
         <?php
         $all_advocates_args = array(
             'posts_per_page' => -1,
@@ -13,16 +15,18 @@
                 $all_advocates->the_post();
                 ?>
                 <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
-                    <?php
-                    if (has_post_thumbnail()) {
-                        the_post_thumbnail('advocate_slide_thumb', array(
-                            'class' => 'advocate-picture'
-                        ));
-                    } else {
-                        echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
-                    }
-                    ?>
-                    <div class="advocate-name"><?php the_title(); ?></div>
+                    <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                        <?php
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail('advocate_slide_thumb', array(
+                                'class' => 'advocate-picture'
+                            ));
+                        } else {
+                            echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
+                        }
+                        ?>
+                        <div class="advocate-name"><?php the_title(); ?></div>
+                    </a>
                     <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
                     <div class="advocate-bio-link">
                         <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
@@ -32,5 +36,5 @@
             }
         }
         ?>
-    </row>
+    </div>
 </div>

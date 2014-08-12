@@ -18,6 +18,18 @@
 
 main {
     margin: 0 40px;
+    font-size: 17px;
+    h1 {
+        padding-bottom: 10px;
+    }
+}
+
+.advocate-pages h1 {
+    border-bottom: 1px solid #f0b432;
+}
+
+.solicitors-pages h1 {
+    border-bottom: 1px solid #A5ACC1;
 }
 
 h1 {
@@ -33,6 +45,14 @@ h2 {
     font-weight: 700;
     color: #142452;
     font-size: 26px;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.pad-bot-20 {
+    padding-bottom: 20px;
 }
 
 // Header
@@ -79,10 +99,12 @@ body {
     }
     nav.navbar-collapse {
         position: relative;
+        pointer-events: none;
         ul.nav {
             bottom: 0;
             right: 0;
             position: absolute;
+            pointer-events: auto;
             a {
                 color: @pds-blue;
                 &:hover {
@@ -99,7 +121,7 @@ body {
 // Footer
 
 footer {
-    padding-top: 20px;
+    padding-top: 80px;
     h2 {
         margin-left: 15px;
         color: #fff;
@@ -141,6 +163,7 @@ footer {
             font-size: 24px;
             text-transform: uppercase;
             padding: 0;
+            margin-top: 30px;
         }
     }
     #footer-contact {
@@ -161,7 +184,16 @@ footer {
         }
         .socicons {
             margin-top: 20px;
+            .twitter-handle {
+                font-size: 24px;
+                font-family: Ubuntu;
+                display: inline-block;
+                height: 52px;
+                vertical-align: text-bottom;
+                line-height: 52px;
+            }
             a {
+                color: #f0b432;
                 .socicon {
                     margin-top: 20px;
                     font-size: 44px;
@@ -199,6 +231,7 @@ footer {
             font-size: 32px;
             color: #364773;
             padding: 0 40px;
+            border: none;
         }
         div p {
             padding: 0 25px 10px;
@@ -263,6 +296,10 @@ footer {
 }
 
 // Common page elements
+.page-header {
+    border-bottom: none;
+}
+
 .advocate-pages {
     #page-header {
         background: url('../img/our-advocates.jpg') no-repeat center center;
@@ -295,9 +332,8 @@ footer {
 // Advocates homepage
 
 #advocates-slider-container {
-    border-top: 1px solid #f0b432;
     border-bottom: 1px solid #f0b432;
-    padding: 15px 0;
+    padding: 5px 0 15px;
 }
 #advocates-slider {
     width: 100%;
@@ -338,6 +374,7 @@ footer {
 #advocates-container {
     padding-top: 40px;
     padding-bottom: 40px;
+    font-size: 14px;
     article.advocate-bio {
         height: 375px;
         padding-top: 10px;
@@ -349,6 +386,9 @@ footer {
             font-weight: bold;
             font-size: 1.2em;
         }
+    }
+    a {
+        font-weight: 700;
     }
 }
 

@@ -35,11 +35,7 @@
             <p>To enquire about the availability of our advocates, please contact Sarah Bennett:<br>Telephone: 07834 140782/01325 289488 or email <a href="sarah.bennett@legalaid.gsi.gov.uk">sarah.bennett@legalaid.gsi.gov.uk</a></p>
         </div>
         <div class="col-md-4 socicons">
-            <a href=""><span class="socicon">,</span></a>
-            <a href=""><span class="socicon">v</span></a>
-            <a href=""><span class="socicon">r</span></a>
-            <a href=""><span class="socicon">a</span></a>
-            <a href=""><span class="socicon">b</span></a>
+            <a href="https://twitter.com/publicdefenderservice"><span class="socicon">a</span><span class="twitter-handle">@publicdefenderservice</span></a>
         </div>
     </section>
     <!--</div>-->

@@ -20,7 +20,9 @@
                 <div class="slide-image" id="slide-<?php the_ID(); ?>">
                     <?php
                     if (has_post_thumbnail()) {
+                        echo "<a href='" . get_metadata('post', get_the_ID(), 'advocate-cv', true) ."'>";
                         the_post_thumbnail('advocate_slide');
+                        echo "</a>";
                     } else {
                         echo "<img src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
                     }
@@ -42,7 +44,7 @@
     <p>We have a team of 25 barristers and higher courts advocates including seven Queens Counsel with experience at every level of the criminal justice system. We provide independent, high quality, professional advice and representation to accused persons throughout England and Wales.</p>
     <p>Amongst our team, we have advocates who specialise in murder, fraud, historic and serious sexual offences, terrorism and Very High Cost Criminal Cases.</p>
     <p>We can be instructed to carry out work by any solicitors looking for representation for their clients in the Higher Courts of England and Wales. We are able to operate nationally.</p>
-    <p>To find out more about our advocates, please visit <a href="<?php echo site_url('advocates/our-advocates/') ?>">Our Advocates</a>page.</p>
+    <p>To find out more about our advocates, please visit <a href="<?php echo site_url('advocates/our-advocates/') ?>">Our Advocates</a> page.</p>
     <p>To contact us or speak to our clerk, please visit the <a href="<?php echo site_url('advocates/contact-us/') ?>">Contact Us</a> page.</p>
 </div>
 <div id="advocates-news" class="col-md-4">

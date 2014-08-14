@@ -11,7 +11,7 @@ if (!is_front_page()) {
     $extra_body = "";
 }
 ?>
-<body <?php body_class($extra_body); ?>>
+<body <?php body_class(get_post( $post )->post_name . " " . $extra_body); ?>>
 
     <!--[if lt IE 8]>
       <div class="alert alert-warning">

@@ -21,6 +21,25 @@ $meta_boxes = array(
         )
     ), // faq-meta-box
     array(
+        'slug' => 'advocates',
+        'id' => 'news-meta-box',
+        'title' => 'News',
+        'pages' => array('page'),
+        'context' => 'normal',
+        'priority' => 'high',
+        'fields' => array(
+            array(
+                'id' => 'news-entries',
+                'label' => 'News Entries',
+                'type' => 'list-item',
+                'settings' => array(
+                    array('id' => 'body', 'label' => 'News text', 'type' => 'textarea'),
+                    array('id' => 'date', 'label' => 'Date', 'type' => 'date_picker')
+                )
+            )
+        )
+    ), // news-meta-box
+    array(
         'id' => 'advocate-meta-box',
         'title' => 'Advocate Details',
         'pages' => array('advocate'),
@@ -39,4 +58,77 @@ $meta_boxes = array(
             )
         )
     ), // advocate-meta-box
+    array(
+        'id' => 'location-meta-box',
+        'title' => 'Location Details',
+        'pages' => array('location'),
+        'context' => 'normal',
+        'priority' => 'default',
+        'fields' => array(
+            array(
+                'id' => 'location-address',
+                'label' => 'Address',
+                'type' => 'textarea',
+            ),
+            array(
+                'id' => 'location-postcode',
+                'label' => 'Postcode',
+                'type' => 'text'
+            ),
+            array(
+                'id' => 'location-dx',
+                'label' => 'DX',
+                'type' => 'text'
+            ),
+            array(
+                'id' => 'location-tel',
+                'label' => 'Telephone',
+                'type' => 'text'
+            ),
+            array(
+                'id' => 'location-fax',
+                'label' => 'Fax',
+                'type' => 'text'
+            ),
+            array(
+                'id' => 'location-email',
+                'label' => 'Email',
+                'type' => 'text'
+            )
+        )
+    ), // location-meta-box
+    array(
+        'id' => 'lawyers-meta-box',
+        'title' => 'Lawyer Details',
+        'pages' => array('location'),
+        'context' => 'normal',
+        'priority' => 'default',
+        'fields' => array(
+            array(
+                'id' => 'head-of-office',
+                'label' => 'Head of Ofice',
+                'type' => 'text'
+            ),
+            array(
+                'id' => 'solicitor-advocates',
+                'label' => 'Solicitor Advocates',
+                'type' => 'list-item',
+                'settings' => array(
+                    
+                )
+            ),
+            array(
+                'id' => 'duty-solicitors',
+                'label' => 'Duty Solicitors',
+                'type' => 'list-item',
+                'settings' => array()
+            ),
+            array(
+                'id' => 'police-reps',
+                'label' => 'Accredited Police Station Representatives',
+                'type' => 'list-item',
+                'settings' => array()
+            )
+        )
+    ), // location-meta-box
 );

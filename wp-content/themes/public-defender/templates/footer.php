@@ -1,6 +1,24 @@
 <footer class="content-info" role="contentinfo">
     <!--<div class="container">-->
     <?php
+    // Get Advocacy footer text
+    $advocate_page = get_page_by_path('advocates');
+    $advocacy_query = new WP_Query(array(
+        'post_parent' => $advocate_page->ID,
+        'name' => 'contact-us',
+        'post_type' => 'page'
+    ));
+    $advocacy_contact = $advocacy_query->posts[0]->post_content;
+
+    // Get Solicitors footer text
+    $solicitors_page = get_page_by_path('solicitors');
+    $solicitors_query = new WP_Query(array(
+        'post_parent' => $solicitors_page->ID,
+        'name' => 'contact-us',
+        'post_type' => 'page'
+    ));
+    $solicitors_contact = $solicitors_query->posts[0]->post_content;
+
     // Left for legacy reasons
     if (has_nav_menu('footer_navigation')) :
     //wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav navbar-nav'));
@@ -17,22 +35,26 @@
     </section>
     <section id="footer-contact" class="container">
         <div class="col-md-8">
-            <h2>Contact Us Both</h2>
+            <h2>Contact Us</h2>
         </div>
         <div class="col-md-4">
             <h2>Follow Us</h2>
         </div>
         <div class="col-md-4">
-            <h3>PDS Solicitors</h3>
-            <p>If you have a query, comment or request for information, contact the PDS Business Team:<br>Email: <a href="mailto:pds.businessteam@legalaid.gsi.gov.uk">pds.businessteam@legalaid.gsi.gov.uk</a></p>
-            <strong>Key contact</strong>
-            <p>Operations Manager: David Marshalsay Contact via Swansea office or<br>email <a href="mailto:david.marshalsay@legalaid.gsi.gov.uk">david.marshalsay@legalaid.gsi.gov.uk</a></p>
+            <?php
+            if (is_tree($advocate_page->ID)) {
+                echo $advocacy_contact;
+            } else {
+                echo $solicitors_contact;
+            }
+            ?>
         </div>
         <div class="col-md-4">
-            <h3>PDS Advocacy Unit</h3>
-            <p>Our Advocates are based across the country and can operate anywhere within England and Wales.</p>
-            <p>PDS Advocacy Unit clerk – contact details<br><a href="pdsclerks@legalaid.gsi.gov.uk">pdsclerks@legalaid.gsi.gov.uk</a></p>
-            <p>To enquire about the availability of our advocates, please contact Sarah Bennett:<br>Telephone: 07834 140782/01325 289488 or email <a href="sarah.bennett@legalaid.gsi.gov.uk">sarah.bennett@legalaid.gsi.gov.uk</a></p>
+            <?php
+            if (is_front_page() || is_404()) {
+                echo $advocacy_contact;
+            }
+            ?>
         </div>
         <div class="col-md-4 socicons">
             <a href="https://twitter.com/publicdefenderservice"><span class="socicon">a</span><span class="twitter-handle">@publicdefenderservice</span></a>

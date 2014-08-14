@@ -1,6 +1,8 @@
 <div id="page-header">PDS Advocacy Unit</div>
 
-<h1>Advocates Home</h1>
+<div class="page-header">
+    <h1>Advocates Home</h1>
+</div>
 
 <div id="advocates-slider-container">
     <div id="advocates-slider">
@@ -20,7 +22,7 @@
                 <div class="slide-image" id="slide-<?php the_ID(); ?>">
                     <?php
                     if (has_post_thumbnail()) {
-                        echo "<a href='" . get_metadata('post', get_the_ID(), 'advocate-cv', true) ."'>";
+                        echo "<a href='" . get_metadata('post', get_the_ID(), 'advocate-cv', true) . "'>";
                         the_post_thumbnail('advocate_slide');
                         echo "</a>";
                     } else {
@@ -49,6 +51,11 @@
 </div>
 <div id="advocates-news" class="col-md-4">
     <h2>News Feed</h2>
-    <p>Welcome to the new PDS Advocacy Unit website. Make sure you check out the FAQs about the PDS Advocacy Unit here (link to FAQs page).</p>
-    <p>Follow us on Twitter @publicdefender</p>
+    <?php
+    wp_reset_query();
+    $news_entries = get_metadata('post', get_the_ID(), 'news-entries');
+    foreach ($news_entries[0] as $news_entry) {
+        echo "<p>" . $news_entry['body'] . "</p>";
+    }
+    ?>
 </div>

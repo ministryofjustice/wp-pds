@@ -2,12 +2,7 @@
     <div id="welcome">
         <h1 class='col-md-12'>Welcome to the PDS</h1>
         <div class='col-md-6'>
-            <p>
-                The Public Defender Service (PDS) has been in existence since 2001. We provide independent defence representation in criminal cases from our offices in Cheltenham, Darlington, Pontypridd and Swansea.
-            </p>
-            <p>
-                In 2014 our Advocacy Unit was set up to provide additional representation in serious and complex Crown Court cases. The Advocacy Unit is based in London but covers the whole of England and Wales.
-            </p>
+            <?php the_post(); the_content(); ?>
         </div>
     </div>
     <div id="home-ctas">

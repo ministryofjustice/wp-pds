@@ -1,5 +1,7 @@
 <div id="page-header"></div>
-<h1><?php the_title(); ?></h1>
+<div class="page-header">
+    <h1><?php the_title(); ?></h1>
+</div>
 <div id="advocates-container">
     <div class="row" id="advocates">
         <?php

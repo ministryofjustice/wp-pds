@@ -1,10 +1,13 @@
 <div id="page-header"></div>
-<div class="page-header">
+<!--<div class="page-header">
     <h1><?php the_title(); ?></h1>
-</div>
+</div>-->
 <div class="row" id="locations-container">
     <div id="locations-header" class="col-md-12">
-        <?php the_post(); the_content(); ?>
+        <?php
+        the_post();
+        the_content();
+        ?>
         <p>We have dedicated offices in:</p>
         <div id="locations-nav">
             <?php
@@ -26,16 +29,22 @@
         </div>
     </div>
     <div id="locations-body" class="col-md-12">
-        <?php foreach ($locations_query->posts as $location) { ?>
+<?php foreach ($locations_query->posts as $location) { ?>
             <article class="location" id="<?php echo strtolower($location->post_title); ?>">
                 <h2><?php echo $location->post_title; ?></h2>
                 <div class="row">
                     <div class="col-md-6">
                         <p>
                             <?php echo wpautop(get_metadata('post', $location->ID, 'location-address', true)); ?>
-                            <?php echo wpautop(get_metadata('post', $location->ID, 'location-postcode', true)); ?>
+    <?php echo wpautop(get_metadata('post', $location->ID, 'location-postcode', true)); ?>
                             <a href="https://www.google.co.uk/maps/place/<?php echo get_metadata('post', $location->ID, 'location-postcode', true); ?>">Map</a>
                         </p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row pad-bot-20">
+                            <div class="col-md-4 strong">Head of Office:</div>
+                            <div class="col-md-8"><?php echo get_metadata('post', $location->ID, 'head-of-office', true); ?></div>
+                        </div>
                         <div class="row">
                             <div class="col-md-4 strong">DX:</div>
                             <div class="col-md-8"><?php echo get_metadata('post', $location->ID, 'location-dx', true); ?></div>
@@ -53,59 +62,8 @@
                             <div class="col-md-8"><a href="mailto:<?php echo get_metadata('post', $location->ID, 'location-email', true); ?>"><?php echo get_metadata('post', $location->ID, 'location-email', true); ?></a></div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="row pad-bot-20">
-                            <div class="col-md-6 strong">Head of Office:</div>
-                            <div class="col-md-6"><?php echo get_metadata('post', $location->ID, 'head-of-office', true); ?></div>
-                        </div>
-                        <?php
-                        $advocates_array = get_metadata('post', $location->ID, 'solicitor-advocates', true);
-                        if ($advocates_array) {
-                            ?>
-                            <div class="row pad-bot-20">
-                                <div class="col-md-6 strong">Solicitor Advocates:</div>
-                                <div class="col-md-6">
-                                    <?php
-                                    foreach ($advocates_array as $advocate) {
-                                        echo $advocate['title']."<br>";
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <?php
-                        $solicitors_array = get_metadata('post', $location->ID, 'duty-solicitors', true);
-                        if ($solicitors_array) {
-                            ?>
-                            <div class="row pad-bot-20">
-                                <div class="col-md-6 strong">Duty Solicitors:</div>
-                                <div class="col-md-6">
-                                    <?php
-                                    foreach ($solicitors_array as $solicitor) {
-                                        echo $solicitor['title']."<br>";
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <?php
-                        $apsr_array = get_metadata('post', $location->ID, 'police-reps', true);
-                        if ($apsr_array) {
-                            ?>
-                            <div class="row pad-bot-20">
-                                <div class="col-md-6 strong">Accredited Police Station Representatives:</div>
-                                <div class="col-md-6">
-                                    <?php
-                                    foreach ($apsr_array as $apsr) {
-                                        echo $apsr['title']."<br>";
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
                 </div>
             </article>
-        <?php } ?>
+<?php } ?>
     </div>
 </div>

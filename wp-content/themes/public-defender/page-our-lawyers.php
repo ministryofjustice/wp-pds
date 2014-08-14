@@ -1,0 +1,87 @@
+<div id="page-header"></div>
+<div class="page-header">
+    <h1><?php the_title(); ?></h1>
+</div>
+<div class="row" id="locations-container">
+    <div id="locations-header" class="col-md-12">
+        <?php the_post(); the_content(); ?>
+        <div id="locations-nav">
+            <?php
+            $first_post = true;
+            $locations_query = new WP_Query(array(
+                'post_type' => 'location',
+                'orderby' => 'title',
+                'order' => 'ASC'
+            ));
+            foreach ($locations_query->posts as $location) {
+                if (!$first_post) {
+                    echo " | ";
+                } else {
+                    $first_post = false;
+                }
+                echo '<a href="#' . strtolower($location->post_title) . '">' . $location->post_title . '</a>';
+            }
+            ?>
+        </div>
+    </div>
+    <div id="locations-body" class="col-md-12">
+        <?php foreach ($locations_query->posts as $location) { ?>
+            <article class="location" id="<?php echo strtolower($location->post_title); ?>">
+                <h2><?php echo $location->post_title; ?></h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row pad-bot-20">
+                            <div class="col-md-6 strong">Head of Office:</div>
+                            <div class="col-md-6"><?php echo get_metadata('post', $location->ID, 'head-of-office', true); ?></div>
+                        </div>
+                        <?php
+                        $advocates_array = get_metadata('post', $location->ID, 'solicitor-advocates', true);
+                        if ($advocates_array) {
+                            ?>
+                            <div class="row pad-bot-20">
+                                <div class="col-md-6 strong">Solicitor Advocates:</div>
+                                <div class="col-md-6">
+                                    <?php
+                                    foreach ($advocates_array as $advocate) {
+                                        echo $advocate['title']."<br>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        $solicitors_array = get_metadata('post', $location->ID, 'duty-solicitors', true);
+                        if ($solicitors_array) {
+                            ?>
+                            <div class="row pad-bot-20">
+                                <div class="col-md-6 strong">Duty Solicitors:</div>
+                                <div class="col-md-6">
+                                    <?php
+                                    foreach ($solicitors_array as $solicitor) {
+                                        echo $solicitor['title']."<br>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        $apsr_array = get_metadata('post', $location->ID, 'police-reps', true);
+                        if ($apsr_array) {
+                            ?>
+                            <div class="row pad-bot-20">
+                                <div class="col-md-6 strong">Accredited Police Station Representatives:</div>
+                                <div class="col-md-6">
+                                    <?php
+                                    foreach ($apsr_array as $apsr) {
+                                        echo $apsr['title']."<br>";
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </article>
+        <?php } ?>
+    </div>
+</div>

@@ -1,7 +1,4 @@
 <div id="page-header"></div>
-<!--<div class="page-header">
-    <h1><?php the_title(); ?></h1>
-</div>-->
 <div class="row" id="locations-container">
     <div id="locations-header" class="col-md-12">
         <?php

@@ -57,7 +57,7 @@
             ?>
         </div>
         <div class="col-md-4 socicons">
-            <a href="https://twitter.com/publicdefenderservice"><span class="socicon">a</span><span class="twitter-handle">@publicdefenderservice</span></a>
+            <!--<a href="https://twitter.com/publicdefenderservice"><span class="socicon">a</span><span class="twitter-handle">@publicdefenderservice</span></a>-->
         </div>
     </section>
     <!--</div>-->

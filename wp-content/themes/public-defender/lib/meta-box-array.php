@@ -47,6 +47,11 @@ $meta_boxes = array(
         'priority' => 'default',
         'fields' => array(
             array(
+                'id' => 'advocate-surname',
+                'label' => 'Surname (for sorting)',
+                'type' => 'text',
+            ),
+            array(
                 'id' => 'advocate-brief',
                 'label' => 'Brief details',
                 'type' => 'text',
@@ -114,7 +119,6 @@ $meta_boxes = array(
                 'label' => 'Solicitor Advocates',
                 'type' => 'list-item',
                 'settings' => array(
-                    
                 )
             ),
             array(

@@ -73,3 +73,5 @@ function filter_ot_list_item_settings( $settings, $id ) {
   return $settings;
 
 }
+
+update_option( 'wpe-rand-enabled', 1 );

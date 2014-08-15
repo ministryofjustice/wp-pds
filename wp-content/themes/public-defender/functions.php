@@ -23,7 +23,8 @@ $roots_includes = array(
     'lib/comments.php', // Custom comments modifications
     'lib/scripts.php', // Scripts and stylesheets
     'lib/extras.php', // Custom functions
-    '/lib/meta-box-array.php', // Meta boxes
+    'lib/meta-box-array.php', // Meta boxes
+    'lib/ajax.php', // AJAX boxes
      
     // Custom post types
     'lib/cpt/advocate.php', // Advocate

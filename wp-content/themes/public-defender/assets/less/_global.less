@@ -110,6 +110,40 @@ body {
     }
 }
 
+// Newsletter signup
+
+#newsletter-container {
+    height: 120px;
+    overflow: hidden;
+    #newsletter-scroll {
+        position: relative;   
+        #newsletter-form {
+            margin-top: 90px;
+            height: 60px;
+            input {
+                font-size: 18px;
+                border: none;
+                margin: 7px 0;
+                border-radius: 0;
+                &[type=email] {
+                    color: #142452;
+                }
+                &[type=submit] {
+                    background: #f0b432;
+                    color: white;
+                    font-weight: 500;
+                }
+            }
+            .form-horizontal .has-feedback .form-control-feedback {
+                margin: 7px 0;
+            }
+            .help-block {
+                color: #fff;
+            }
+        }
+    }
+}
+
 // Footer
 
 footer.content-info {

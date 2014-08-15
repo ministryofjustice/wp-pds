@@ -94,7 +94,6 @@
                 type: 'post',
                 url: '<?php echo admin_url('admin-ajax.php'); ?>',
                 success: function(data) {
-                    console.log(data);
                     emailStatus = data;
                     $('#newsletter-form form').bootstrapValidator('revalidateField', 'email');
                     if(emailStatus==1) {

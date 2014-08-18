@@ -52,6 +52,16 @@ $meta_boxes = array(
                 'type' => 'text',
             ),
             array(
+              'id' => 'advocate-call',
+                'label' => 'Year called',
+                'type' => 'text'
+            ),
+            array(
+              'id' => 'advocate-silk',
+                'label' => 'Year silks received',
+                'type' => 'text'
+            ),
+            array(
                 'id' => 'advocate-brief',
                 'label' => 'Brief details',
                 'type' => 'text',

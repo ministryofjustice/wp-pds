@@ -132,6 +132,7 @@ body {
                     background: #f0b432;
                     color: white;
                     font-weight: 500;
+                    text-align: center;
                 }
             }
             .form-horizontal .has-feedback .form-control-feedback {
@@ -186,7 +187,7 @@ footer.content-info {
             background-color: #f0b432;
             font-weight: 700;
             width: 100%;
-            font-size: 24px;
+            font-size: 22px;
             text-transform: uppercase;
             padding: 0;
             margin-top: 30px;
@@ -246,7 +247,7 @@ footer.content-info {
     }
     #welcome {
         border-bottom: 1px solid #A5ACC1;
-        background: url('../img/Welcome_background_1170x340.jpg') no-repeat right center;
+        background: url('../img/Welcome_background_1170x340.jpg') no-repeat center center;
         height: 340px;
         color: #6C6C6C;
         font-weight: 300;
@@ -414,9 +415,10 @@ footer.content-info {
     width: 100%;
     overflow: hidden;
     position: relative;
+    height: 190px;
     .slide-image {
-        width: 25%;
-        float: left;
+/*        width: 25%;
+        float: left;*/
         text-align: center;
         img {
             height: 190px;
@@ -429,7 +431,6 @@ footer.content-info {
             background-color: rgba(0,0,0,0.5);
             color: white;
             padding: 5px;
-            margin-left: 4px;
         }
     }
 }
@@ -455,12 +456,22 @@ footer.content-info {
         border-bottom: 1px solid #f0b432;
         .advocate-picture {
             width: 100%;
+            height: auto;
         }
         .advocate-name {
             font-weight: bold;
             font-size: 1.15em;
             font-family: Ubuntu;
             padding: 10px 0 5px;
+        }
+    }
+    #head-advocates {
+        article.advocate-bio {
+            height: 245px;
+            .advocate-name {
+                margin-top: 30px;
+                font-size: 1.3em;
+            }
         }
     }
     a {

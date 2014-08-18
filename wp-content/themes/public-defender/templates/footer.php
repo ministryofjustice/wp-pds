@@ -35,10 +35,10 @@
                 <div id="newsletter-form">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <div class="col-md-9">
+                            <div class="col-md-8">
                                 <input class="form-control input-lg" type="email" name="email" id="email">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <input class="form-control input-lg" type="submit">
                             </div>
                         </div>

@@ -74,4 +74,5 @@ function filter_ot_list_item_settings( $settings, $id ) {
 
 }
 
+// Overwrites WPEngine's option to turn RAND ordering off
 update_option( 'wpe-rand-enabled', 1 );

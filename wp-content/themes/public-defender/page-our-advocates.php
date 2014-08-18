@@ -1,24 +1,16 @@
+<?php $advocacy_head = get_page_by_title("David Aubrey QC", "OBJECT", "advocate"); ?>
 <div id="page-header"></div>
 <div class="page-header">
     <h1><?php the_title(); ?></h1>
 </div>
 <div id="advocates-container">
-    <h2>QCs</h2>
-    <div class="row" id="qc-advocates">
+    <h2>Head of Advocacy</h2>
+    <div class="row" id="head-advocates">
         <?php
         $qc_advocates_args = array(
             'posts_per_page' => -1,
             'post_type' => 'advocate',
-            'meta_key' => 'advocate-surname',
-            'orderby' => 'meta_value',
-            'order' => 'ASC',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'advocate-type',
-                    'field' => 'slug',
-                    'terms' => 'qc'
-                )
-            )
+            'p' => $advocacy_head->ID,
         );
         $qc_advocates = new WP_Query($qc_advocates_args);
         if ($qc_advocates->have_posts()) {
@@ -26,25 +18,80 @@
             while ($qc_advocates->have_posts()) {
                 $qc_advocates->the_post();
                 ?>
-                <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
-                    <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                <article class="col-lg-12 advocate-bio advocate-<?php the_ID(); ?>">
+                    <a class='col-md-2 col-sm-6 col-xs-6' href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
                         <?php
                         if (has_post_thumbnail()) {
                             the_post_thumbnail('advocate_slide_thumb', array(
                                 'class' => 'advocate-picture'
                             ));
                         } else {
-                            echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
+                            echo "<img class='advocate-picture' height=190 src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
                         }
                         ?>
-                        <div class="advocate-name"><?php the_title(); ?></div>
                     </a>
-                    <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
-                    <div class="advocate-bio-link">
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
+                    <div class='col-md-4 col-sm-6 col-xs-6'>
+                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                            <div class="advocate-name"><?php the_title(); ?></div>
+                        </a>
+                        <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
+                        <div class="advocate-bio-link">
+                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
+                        </div>
                     </div>
                 </article>
                 <?php
+            }
+        }
+        ?>
+    </div>
+    <h2>QCs</h2>
+    <div class="row" id="qc-advocates">
+        <?php
+        $qc_advocates_args = array(
+            'posts_per_page' => -1,
+            'post_type' => 'advocate',
+            'meta_key' => 'advocate-call',
+            'orderby' => 'meta_value',
+            'order' => 'ASC',
+            'post__not_in' => array($advocacy_head->ID),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'advocate-type',
+                    'field' => 'slug',
+                    'terms' => 'qc'
+                )
+            )
+            
+        );
+        $qc_advocates = new WP_Query($qc_advocates_args);
+        if ($qc_advocates->have_posts()) {
+            $slide_count = 0;
+            while ($qc_advocates->have_posts()) {
+                $qc_advocates->the_post();
+                // Hide advocates that have no photo
+                if (has_post_thumbnail()) {
+                    ?>
+                    <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
+                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                            <?php
+                            if (has_post_thumbnail()) {
+                                the_post_thumbnail('advocate_slide_thumb', array(
+                                    'class' => 'advocate-picture'
+                                ));
+                            } else {
+                                echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
+                            }
+                            ?>
+                            <div class="advocate-name"><?php the_title(); ?></div>
+                        </a>
+                        <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
+                        <div class="advocate-bio-link">
+                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
+                        </div>
+                    </article>
+                    <?php
+                }
             }
         }
         ?>
@@ -55,7 +102,7 @@
         $non_qc_advocates_args = array(
             'posts_per_page' => -1,
             'post_type' => 'advocate',
-            'meta_key' => 'advocate-surname',
+            'meta_key' => 'advocate-call',
             'orderby' => 'meta_value',
             'order' => 'ASC',
             'tax_query' => array(
@@ -72,26 +119,29 @@
             $slide_count = 0;
             while ($non_qc_advocates->have_posts()) {
                 $non_qc_advocates->the_post();
-                ?>
-                <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
-                    <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('advocate_slide_thumb', array(
-                                'class' => 'advocate-picture'
-                            ));
-                        } else {
-                            echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
-                        }
-                        ?>
-                        <div class="advocate-name"><?php the_title(); ?></div>
-                    </a>
-                    <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
-                    <div class="advocate-bio-link">
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
-                    </div>
-                </article>
-                <?php
+                // Hide advocates that have no photo
+                if (has_post_thumbnail()) {
+                    ?>
+                    <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
+                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                            <?php
+                            if (has_post_thumbnail()) {
+                                the_post_thumbnail('advocate_slide_thumb', array(
+                                    'class' => 'advocate-picture'
+                                ));
+                            } else {
+                                echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
+                            }
+                            ?>
+                            <div class="advocate-name"><?php the_title(); ?></div>
+                        </a>
+                        <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
+                        <div class="advocate-bio-link">
+                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
+                        </div>
+                    </article>
+                    <?php
+                }
             }
         }
         ?>

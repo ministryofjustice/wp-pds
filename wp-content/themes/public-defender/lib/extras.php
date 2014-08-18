@@ -63,16 +63,21 @@ add_image_size('advocate_slide', 265, 190, true);
 add_image_size('advocate_slide_thumb', 160, 190, true);
 
 // Prevent default fields in optiontree listitem
-add_filter( 'ot_list_item_settings', 'filter_ot_list_item_settings', 10, 2 );
-function filter_ot_list_item_settings( $settings, $id ) {
+add_filter('ot_list_item_settings', 'filter_ot_list_item_settings', 10, 2);
 
-  // Only remove settings from a specific option
-  if ( in_array($id, array('solicitor-advocates','duty-solicitors','police-reps')) )
-    return array();
+function filter_ot_list_item_settings($settings, $id) {
 
-  return $settings;
+    // Only remove settings from a specific option
+    if (in_array($id, array('solicitor-advocates', 'duty-solicitors', 'police-reps')))
+        return array();
 
+    return $settings;
 }
 
 // Overwrites WPEngine's option to turn RAND ordering off
-update_option( 'wpe-rand-enabled', 1 );
+update_option('wpe-rand-enabled', 1);
+
+// Replaces menu_order with two meta_value for sorting by multiple custom fields
+function orderbyreplace($orderby) {
+    return str_replace('wp_posts.menu_order', 'wp_postmeta.meta_value, mt1.meta_value', $orderby);
+}

@@ -51,10 +51,21 @@
         $qc_advocates_args = array(
             'posts_per_page' => -1,
             'post_type' => 'advocate',
-            'meta_key' => 'advocate-call',
-            'orderby' => 'meta_value',
+            'orderby' => 'menu_order',
             'order' => 'ASC',
             'post__not_in' => array($advocacy_head->ID),
+            'meta_query' => array(
+                array(
+                    'key' => 'advocate-call',
+                    'value' => '',
+                    'compare' => 'LIKE'
+                ),
+                array(
+                    'key' => 'advocate-surname',
+                    'value' => '',
+                    'compare' => 'LIKE'
+                )
+            ),
             'tax_query' => array(
                 array(
                     'taxonomy' => 'advocate-type',
@@ -62,9 +73,10 @@
                     'terms' => 'qc'
                 )
             )
-            
         );
+        add_filter('posts_orderby','orderbyreplace');
         $qc_advocates = new WP_Query($qc_advocates_args);
+        remove_filter('posts_orderby','orderbyreplace');
         if ($qc_advocates->have_posts()) {
             $slide_count = 0;
             while ($qc_advocates->have_posts()) {
@@ -102,9 +114,20 @@
         $non_qc_advocates_args = array(
             'posts_per_page' => -1,
             'post_type' => 'advocate',
-            'meta_key' => 'advocate-call',
-            'orderby' => 'meta_value',
+            'orderby' => 'menu_order',
             'order' => 'ASC',
+            'meta_query' => array(
+                array(
+                    'key' => 'advocate-call',
+                    'value' => '',
+                    'compare' => 'LIKE'
+                ),
+                array(
+                    'key' => 'advocate-surname',
+                    'value' => '',
+                    'compare' => 'LIKE'
+                )
+            ),
             'tax_query' => array(
                 array(
                     'taxonomy' => 'advocate-type',
@@ -114,7 +137,9 @@
                 )
             )
         );
+        add_filter('posts_orderby','orderbyreplace');
         $non_qc_advocates = new WP_Query($non_qc_advocates_args);
+        remove_filter('posts_orderby','orderbyreplace');
         if ($non_qc_advocates->have_posts()) {
             $slide_count = 0;
             while ($non_qc_advocates->have_posts()) {

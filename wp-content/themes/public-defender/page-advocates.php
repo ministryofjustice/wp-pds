@@ -10,7 +10,13 @@
         $random_advocates_args = array(
             'posts_per_page' => 4,
             'post_type' => 'advocate',
-            'orderby' => 'rand'
+            'orderby' => 'rand',
+            'meta_query' => array(
+                array(
+                    'key' => 'advocate-hide',
+                    'value' => false
+                )
+            )
         );
         $random_advocates = new WP_Query($random_advocates_args);
         if ($random_advocates->have_posts()) {

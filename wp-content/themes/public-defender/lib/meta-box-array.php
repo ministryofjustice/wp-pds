@@ -70,6 +70,11 @@ $meta_boxes = array(
                 'id' => 'advocate-cv',
                 'label' => 'Advocate CV',
                 'type' => 'upload'
+            ),
+            array(
+                'id' => 'advocate-hide',
+                'label' => 'Hide advocate from banner',
+                'type' => 'checkbox'
             )
         )
     ), // advocate-meta-box

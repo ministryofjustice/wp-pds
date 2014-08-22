@@ -25,6 +25,7 @@
     endif;
     ?>
     <section id="footer-newsletter" class="container">
+        <?php if(false) { // Hide newsletter form ?>
         <div class="col-md-7">
             <h2>Newsletter</h2>
             Sign up to join our newsletter. Stay up-to-date by email.
@@ -46,6 +47,7 @@
                 </div>
             </div>
         </div>
+        <?php } // End hide newsletter form ?>
     </section>
     <section id="footer-contact" class="container">
         <div class="col-md-8">

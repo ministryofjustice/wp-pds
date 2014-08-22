@@ -14,7 +14,7 @@
             'meta_query' => array(
                 array(
                     'key' => 'advocate-show',
-                    'value' => true
+                    'value' => 'on'
                 )
             )
         );

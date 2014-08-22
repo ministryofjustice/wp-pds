@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row pad-bot-20">
-                            <div class="col-md-6 strong">Head of Office:</div>
+                            <div class="col-md-6 strong"><?php echo ($location->post_title=="Cardiff (Admin Hub)"?"Site Contact":"Head of Office"); ?>:</div>
                             <div class="col-md-6"><?php echo get_metadata('post', $location->ID, 'head-of-office', true); ?></div>
                         </div>
                         <?php

@@ -75,7 +75,7 @@ $meta_boxes = array(
                 'id' => 'advocate-hide',
                 'label' => 'Hide advocate from banner',
                 'desc'=> 'By selecting this box you are choosing to hide this advocate from the Advocate Homepage banner',
-                'type' => 'checkbox'
+                'type' => 'on-off'
             )
         )
     ), // advocate-meta-box

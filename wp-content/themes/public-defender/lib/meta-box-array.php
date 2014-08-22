@@ -72,9 +72,9 @@ $meta_boxes = array(
                 'type' => 'upload'
             ),
             array(
-                'id' => 'advocate-hide',
-                'label' => 'Hide advocate from banner',
-                'desc'=> 'By selecting this box you are choosing to hide this advocate from the Advocate Homepage banner',
+                'id' => 'advocate-show',
+                'label' => 'Show advocate on banner',
+                'desc'=> 'By selecting this box you are choosing to show this advocate on the Advocate Homepage banner',
                 'type' => 'on-off'
             )
         )

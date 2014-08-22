@@ -13,8 +13,8 @@
             'orderby' => 'rand',
             'meta_query' => array(
                 array(
-                    'key' => 'advocate-hide',
-                    'value' => false
+                    'key' => 'advocate-show',
+                    'value' => true
                 )
             )
         );

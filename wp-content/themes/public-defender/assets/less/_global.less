@@ -54,6 +54,13 @@ body {
     font-weight: 300;
 }
 
+header .advocate-phone {
+    display: none;
+    right: 0;
+    font-weight: 600;
+    color: black;
+}
+
 .navbar-default  {
     height: 140px;
     background-color: #fff;
@@ -325,6 +332,9 @@ footer.content-info {
 
 // Page headers
 .advocate-pages {
+    header .advocate-phone {
+        display: absolute;
+    }
     &.advocates {
         #page-header {
             background: url('../img/Extra_banner_1170x200.2.jpg') no-repeat top center;
@@ -427,7 +437,7 @@ footer.content-info {
         .slide-info {
             text-align: left;
             position: absolute;
-            bottom: -100px;
+            bottom: -100%;
             width: 265px;
             background-color: rgba(0,0,0,0.5);
             color: white;

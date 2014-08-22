@@ -12,10 +12,15 @@
             'post_type' => 'advocate',
             'orderby' => 'rand',
             'meta_query' => array(
+                'relation' => 'OR',
                 array(
                     'key' => 'advocate-show',
                     'value' => 'off',
                     'compare' => '!='
+                ),
+                array(
+                    'key' => 'advocate-show',
+                    'compare' => 'NOT EXISTS'
                 )
             )
         );
@@ -26,7 +31,7 @@
                 $random_advocates->the_post();
                 $slide_count++;
                 ?>
-                <div class="slide-image col-xs-6 col-sm-5 <?php if($slide_count==1) echo "col-xs-offset-3 col-sm-offset-1 col-md-offset-0 "; ?>col-md-4 col-lg-3" id="slide-<?php the_ID(); ?>">
+                <div class="slide-image col-xs-6 col-sm-5 <?php if ($slide_count == 1) echo "col-xs-offset-3 col-sm-offset-1 col-md-offset-0 "; ?>col-md-4 col-lg-3" id="slide-<?php the_ID(); ?>">
                     <?php
                     if (has_post_thumbnail()) {
                         echo "<a href='" . get_metadata('post', get_the_ID(), 'advocate-cv', true) . "'>";

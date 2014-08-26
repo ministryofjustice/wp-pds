@@ -59,7 +59,7 @@ require_once (trailingslashit(get_template_directory()) . 'option-tree/ot-loader
 load_template(trailingslashit(get_template_directory()) . 'lib/meta-boxes.php');
 
 // Set image size
-add_image_size('advocate_slide', 265, 190, true);
+add_image_size('advocate_slide', 242, 190, true);
 add_image_size('advocate_slide_thumb', 160, 190, true);
 
 // Prevent default fields in optiontree listitem

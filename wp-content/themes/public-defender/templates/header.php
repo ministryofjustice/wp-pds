@@ -13,7 +13,7 @@
             <a class="navbar-brand-name" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
-            <div class="advocate-phone">To contact our clerk, please call 01325 289488</div>
+            <div class="advocate-phone">Please contact our Senior Clerk, Robin Driscoll, on 020 3334 4253</div>
             <?php
             if (!is_page('home')) {
                 $advocate_page = get_page_by_path('advocates');

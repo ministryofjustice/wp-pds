@@ -8,7 +8,7 @@
         'name' => 'contact-us',
         'post_type' => 'page'
     ));
-    $advocacy_contact = $advocacy_query->posts[0]->post_content;
+    $advocacy_contact = wpautop($advocacy_query->posts[0]->post_content);
 
     // Get Solicitors footer text
     $solicitors_page = get_page_by_path('solicitors');
@@ -17,7 +17,7 @@
         'name' => 'contact-us',
         'post_type' => 'page'
     ));
-    $solicitors_contact = $solicitors_query->posts[0]->post_content;
+    $solicitors_contact = wpautop($solicitors_query->posts[0]->post_content);
 
     // Left for legacy reasons
     if (has_nav_menu('footer_navigation')) :

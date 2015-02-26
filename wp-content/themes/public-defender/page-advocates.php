@@ -65,10 +65,24 @@
     <h2>News Feed</h2>
     <?php
     wp_reset_query();
-    $news_entries = get_metadata('post', get_the_ID(), 'news-entries');
-    foreach ($news_entries[0] as $news_entry) {
-        echo "<time datetime='" . $news_entry['date'] . "'>" . date("F d Y",strtotime($news_entry['date'])) . "</time>";
-        echo "<p>" . $news_entry['title'] . "</p>";
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 3,
+    );
+
+    $query = new WP_Query( $args );
+
+    // The Loop
+    if ( $query->have_posts() ) {
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            echo '<h3><a href="' . get_permalink( ) . '">' .  get_the_title() . '</a></h3>';
+            echo "<time datetime='" . get_the_date() . "'>" . get_the_date("F d Y") . "</time>";
+            the_excerpt();
+
+        }
     }
+    wp_reset_postdata();
     ?>
+    <p><a href="/news/">All News</a></p>
 </div>

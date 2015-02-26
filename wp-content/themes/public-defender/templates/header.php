@@ -17,7 +17,7 @@
             <?php
             if (!is_page('home')) {
                 $advocate_page = get_page_by_path('advocates');
-                if (is_tree($advocate_page->ID)) {
+                if (is_tree($advocate_page->ID) || is_single() || is_home()) {
                     wp_nav_menu(array('theme_location' => 'primary_navigation_advocates', 'menu_class' => 'nav navbar-nav'));
                 } else {
                     wp_nav_menu(array('theme_location' => 'primary_navigation_solicitors', 'menu_class' => 'nav navbar-nav'));

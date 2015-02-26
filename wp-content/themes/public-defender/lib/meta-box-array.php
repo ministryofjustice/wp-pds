@@ -20,7 +20,7 @@ $meta_boxes = array(
             )
         )
     ), // faq-meta-box
-    array(
+    /*array(
         'slug' => 'advocates',
         'id' => 'news-meta-box',
         'title' => 'News',
@@ -38,7 +38,7 @@ $meta_boxes = array(
                 )
             )
         )
-    ), // news-meta-box
+    ), // news-meta-box*/
     array(
         'id' => 'advocate-meta-box',
         'title' => 'Advocate Details',

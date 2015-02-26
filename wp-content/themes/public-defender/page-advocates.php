@@ -67,7 +67,8 @@
     wp_reset_query();
     $news_entries = get_metadata('post', get_the_ID(), 'news-entries');
     foreach ($news_entries[0] as $news_entry) {
-        echo "<p>" . $news_entry['body'] . "</p>";
+        echo "<time datetime='" . $news_entry['date'] . "'>" . date("F d Y",strtotime($news_entry['date'])) . "</time>";
+        echo "<p>" . $news_entry['title'] . "</p>";
     }
     ?>
 </div>

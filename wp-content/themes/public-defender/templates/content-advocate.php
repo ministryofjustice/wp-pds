@@ -15,13 +15,10 @@
       <?= get_field("advisory"); ?>
     </div>
     <?php endif; ?>
-    <?php if(have_rows('expertise')): ?>
+    <?php if(get_field("expertise")): ?>
     <div class="entry-content">
       <h2>Expertise</h2>
-      <?php while(have_rows('expertise')): the_row(); ?>
-      <h4><?= get_sub_field('title'); ?></h4>
-      <?= get_sub_field('description'); ?>
-      <?php endwhile; ?>
+      <?= get_field("expertise"); ?>
     </div>
     <?php endif; ?>
     <?php if(have_rows('notable_cases')): ?>

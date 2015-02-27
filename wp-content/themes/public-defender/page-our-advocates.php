@@ -19,7 +19,7 @@
                 $qc_advocates->the_post();
                 ?>
                 <article class="col-lg-12 advocate-bio advocate-<?php the_ID(); ?>">
-                    <a class='col-md-2 col-sm-6 col-xs-6' href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                    <a class='col-md-2 col-sm-6 col-xs-6' href="<?= get_the_permalink(); ?>">
                         <?php
                         if (has_post_thumbnail()) {
                             the_post_thumbnail('advocate_slide_thumb', array(
@@ -31,12 +31,12 @@
                         ?>
                     </a>
                     <div class='col-md-4 col-sm-6 col-xs-6'>
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                        <a href="<?= get_the_permalink(); ?>">
                             <div class="advocate-name"><?php the_title(); ?></div>
                         </a>
                         <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
                         <div class="advocate-bio-link">
-                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
+                            <a href="<?= get_the_permalink(); ?>">Full Profile</a>
                         </div>
                     </div>
                 </article>
@@ -85,7 +85,7 @@
                 if (has_post_thumbnail()) {
                     ?>
                     <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                        <a href="<?= get_the_permalink(); ?>">
                             <?php
                             if (has_post_thumbnail()) {
                                 the_post_thumbnail('advocate_slide_thumb', array(
@@ -99,7 +99,7 @@
                         </a>
                         <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
                         <div class="advocate-bio-link">
-                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
+                            <a href="<?= get_the_permalink(); ?>">Full Profile</a>
                         </div>
                     </article>
                     <?php
@@ -148,7 +148,7 @@
                 if (has_post_thumbnail()) {
                     ?>
                     <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
+                        <a href="<?= get_the_permalink(); ?>">
                             <?php
                             if (has_post_thumbnail()) {
                                 the_post_thumbnail('advocate_slide_thumb', array(
@@ -162,7 +162,7 @@
                         </a>
                         <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
                         <div class="advocate-bio-link">
-                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
+                            <a href="<?= get_the_permalink(); ?>">Full Profile</a>
                         </div>
                     </article>
                     <?php

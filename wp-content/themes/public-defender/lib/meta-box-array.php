@@ -44,7 +44,7 @@ $meta_boxes = array(
         'title' => 'Advocate Details',
         'pages' => array('advocate'),
         'context' => 'normal',
-        'priority' => 'default',
+        'priority' => 'high',
         'fields' => array(
             array(
                 'id' => 'advocate-surname',

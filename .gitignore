@@ -17,6 +17,9 @@ wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
+wp-content/plugins/acf-repeater
+wp-content/plugins/advanced-custom-fields
+wp-content/themes/public-defender/assets/vendor/
 
 # wpengine specific
 .smushit-status

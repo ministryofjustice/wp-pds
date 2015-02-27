@@ -41,7 +41,13 @@ function advocate_cpt_init() {
         'has_archive' => 'document',
         'hierarchical' => false,
         'menu_position' => null,
-        'supports' => array('title', 'thumbnail')
+        'supports' => array('title', 'thumbnail'),
+        'rewrite' => array(
+            'slug'                => 'adv',
+            'with_front'          => true,
+            'pages'               => true,
+            'feeds'               => true,
+        )
     );
     register_post_type('advocate', $advocate_args);
 }

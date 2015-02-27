@@ -113,3 +113,129 @@ function advocate_image_box() {
 }
 
 add_action('do_meta_boxes', 'advocate_image_box');
+
+if(function_exists("register_field_group"))
+{
+    register_field_group(array (
+        'id' => 'acf_cv',
+        'title' => 'CV',
+        'fields' => array (
+            array (
+                'key' => 'field_54f0344941a84',
+                'label' => 'General',
+                'name' => 'general',
+                'type' => 'wysiwyg',
+                'default_value' => '',
+                'toolbar' => 'basic',
+                'media_upload' => 'no',
+            ),
+            array (
+                'key' => 'field_54f0345241a85',
+                'label' => 'Advisory',
+                'name' => 'advisory',
+                'type' => 'wysiwyg',
+                'default_value' => '',
+                'toolbar' => 'basic',
+                'media_upload' => 'no',
+            ),
+            array (
+                'key' => 'field_54f0346441a86',
+                'label' => 'Expertise',
+                'name' => 'expertise',
+                'type' => 'repeater',
+                'sub_fields' => array (
+                    array (
+                        'key' => 'field_54f0346c41a87',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                    ),
+                    array (
+                        'key' => 'field_54f0347141a88',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'wysiwyg',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'toolbar' => 'basic',
+                        'media_upload' => 'no',
+                    ),
+                ),
+                'row_min' => 0,
+                'row_limit' => '',
+                'layout' => 'row',
+                'button_label' => 'Add Row',
+            ),
+            array (
+                'key' => 'field_54f0348741a89',
+                'label' => 'Notable Cases',
+                'name' => 'notable_cases',
+                'type' => 'repeater',
+                'sub_fields' => array (
+                    array (
+                        'key' => 'field_54f034ba41a8a',
+                        'label' => 'Specialism',
+                        'name' => 'specialism',
+                        'type' => 'text',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'formatting' => 'html',
+                        'maxlength' => '',
+                    ),
+                    array (
+                        'key' => 'field_54f034bd41a8b',
+                        'label' => 'Cases',
+                        'name' => 'cases',
+                        'type' => 'wysiwyg',
+                        'column_width' => '',
+                        'default_value' => '',
+                        'toolbar' => 'basic',
+                        'media_upload' => 'no',
+                    ),
+                ),
+                'row_min' => 0,
+                'row_limit' => '',
+                'layout' => 'row',
+                'button_label' => 'Add Row',
+            ),
+            array (
+                'key' => 'field_54f03e6499e85',
+                'label' => 'Notes',
+                'name' => 'notes',
+                'type' => 'wysiwyg',
+                'default_value' => '',
+                'toolbar' => 'basic',
+                'media_upload' => 'no',
+            ),
+        ),
+        'location' => array (
+            array (
+                array (
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'advocate',
+                    'order_no' => 0,
+                    'group_no' => 0,
+                ),
+            ),
+        ),
+        'options' => array (
+            'position' => 'normal',
+            'layout' => 'default',
+            'hide_on_screen' => array (
+            ),
+        ),
+        'menu_order' => 0,
+    ));
+}
+

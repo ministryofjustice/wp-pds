@@ -127,7 +127,7 @@ $meta_boxes = array(
         'fields' => array(
             array(
                 'id' => 'head-of-office',
-                'label' => 'Head of Ofice',
+                'label' => 'Head of Office',
                 'type' => 'text'
             ),
             array(

@@ -131,23 +131,45 @@ $meta_boxes = array(
                 'type' => 'text'
             ),
             array(
+                'id' => 'head-of-office-biography',
+                'label' => 'Head of Office Biography',
+                'type' => 'upload',
+            ),
+            array(
                 'id' => 'solicitor-advocates',
                 'label' => 'Solicitor Advocates',
                 'type' => 'list-item',
                 'settings' => array(
+                  array(
+                    'id' => 'biography',
+                    'label' => 'Biography',
+                    'type' => 'upload',
+                  ),
                 )
             ),
             array(
                 'id' => 'duty-solicitors',
                 'label' => 'Duty Solicitors',
                 'type' => 'list-item',
-                'settings' => array()
+                'settings' => array(
+                  array(
+                    'id' => 'biography',
+                    'label' => 'Biography',
+                    'type' => 'upload',
+                  ),
+                )
             ),
             array(
                 'id' => 'police-reps',
                 'label' => 'Accredited Police Station Representatives',
                 'type' => 'list-item',
-                'settings' => array()
+                'settings' => array(
+                  array(
+                    'id' => 'biography',
+                    'label' => 'Biography',
+                    'type' => 'upload',
+                  ),
+                )
             )
         )
     ), // location-meta-box

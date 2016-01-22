@@ -32,7 +32,22 @@
                     <div class="col-md-12">
                         <div class="row pad-bot-20">
                             <div class="col-md-6 strong"><?php echo ($location->post_title=="Cardiff (Admin Hub)"?"Site Contact":"Head of Office"); ?>:</div>
-                            <div class="col-md-6"><?php echo get_metadata('post', $location->ID, 'head-of-office', true); ?></div>
+                            <div class="col-md-6">
+                              <?php
+
+                              $name = get_metadata('post', $location->ID, 'head-of-office', true);
+                              $biography = get_metadata('post', $location->ID, 'head-of-office-biography', true);
+
+                              if (!empty($biography)) {
+                                echo '<a href="' . esc_url($biography) . '" title="' . esc_attr(sprintf("Read %s&rsquo;s biography", $name)) . '" target="_blank">';
+                              }
+                              echo $name;
+                              if (!empty($biography)) {
+                                echo '</a>';
+                              }
+
+                              ?>
+                            </div>
                         </div>
                         <?php
                         $advocates_array = get_metadata('post', $location->ID, 'solicitor-advocates', true);
@@ -42,8 +57,15 @@
                                 <div class="col-md-6 strong">Solicitor Advocates:</div>
                                 <div class="col-md-6">
                                     <?php
-                                    foreach ($advocates_array as $advocate) {
-                                        echo $advocate['title']."<br>";
+                                    foreach ($advocates_array as $person) {
+                                      if (!empty($person['biography'])) {
+                                        echo '<a href="' . esc_url($person['biography']) . '" title="' . esc_attr(sprintf("Read %s&rsquo;s biography", $person['title'])) . '" target="_blank">';
+                                      }
+                                      echo $person['title'];
+                                      if (!empty($person['biography'])) {
+                                        echo '</a>';
+                                      }
+                                      echo "<br>";
                                     }
                                     ?>
                                 </div>
@@ -57,8 +79,15 @@
                                 <div class="col-md-6 strong">Duty Solicitors:</div>
                                 <div class="col-md-6">
                                     <?php
-                                    foreach ($solicitors_array as $solicitor) {
-                                        echo $solicitor['title']."<br>";
+                                    foreach ($solicitors_array as $person) {
+                                        if (!empty($person['biography'])) {
+                                          echo '<a href="' . esc_url($person['biography']) . '" title="' . esc_attr(sprintf("Read %s&rsquo;s biography", $person['title'])) . '" target="_blank">';
+                                        }
+                                        echo $person['title'];
+                                        if (!empty($person['biography'])) {
+                                          echo '</a>';
+                                        }
+                                        echo "<br>";
                                     }
                                     ?>
                                 </div>
@@ -72,8 +101,15 @@
                                 <div class="col-md-6 strong">Accredited Police Station Representatives:</div>
                                 <div class="col-md-6">
                                     <?php
-                                    foreach ($apsr_array as $apsr) {
-                                        echo $apsr['title']."<br>";
+                                    foreach ($apsr_array as $person) {
+                                      if (!empty($person['biography'])) {
+                                        echo '<a href="' . esc_url($person['biography']) . '" title="' . esc_attr(sprintf("Read %s&rsquo;s biography", $person['title'])) . '" target="_blank">';
+                                      }
+                                      echo $person['title'];
+                                      if (!empty($person['biography'])) {
+                                        echo '</a>';
+                                      }
+                                      echo "<br>";
                                     }
                                     ?>
                                 </div>

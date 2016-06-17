@@ -2,16 +2,22 @@
 Contributors: valendesigns
 Donate link: http://bit.ly/NuXI3T
 Tags: options, theme options, meta boxes
-Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 2.4.0
+Requires at least: 3.8
+Tested up to: 4.4
+Stable tag: 2.6.0
 License: GPLv3
 
 Theme Options UI Builder for WordPress. A simple way to create & save Theme Options and Meta Boxes for free or premium themes.
 
 == Description ==
 
-OptionTree attempts to bridge the gap between WordPress developers, designers and end-users by creating fully responsive option panels and meta boxes with an ease unlike any other plugin. Packed full of advanced features with tons of hooks and filters to adjust every aspect of the user experience. You can build your theme options with a drag & drop interface locally and export a fully functioning `theme-options.php` file for production use that's i18n translation ready with you own custom text domain. And, in just a few simple lines of code, all your themes can have separate settings arrays saved to the database with unique IDs. Not only that, but OptionTree takes full advantage of the new color schemes introduced in WordPress 3.8, it looks and feels built-in.
+OptionTree attempts to bridge the gap between WordPress developers, designers and end-users by creating fully responsive option panels and meta boxes with an ease unlike any other plugin. OptionTree has many advanced features with well placed hooks and filters to adjust every aspect of the user experience. 
+
+Build your Theme Options panel locally with an easy to use drag & drop interface and then export a functioning `theme-options.php` file for production use that is i18n translation ready, with your custom text domain automatically inserted. 
+
+And, in just a few simple lines of code, save settings to the database with a unique array ID so none of your Theme Options conflict with other themes that use OptionTree. 
+
+Also, OptionTree now takes full advantage of the new color schemes introduced in WordPress 3.8, it looks and feels built-in.
 
 #### Theme Integration
 If you're like me, you want to know how everything works. Download and activate the [OptionTree Theme](https://github.com/valendesigns/option-tree-theme) and see first hand how to integrate OptionTree into your own project. I'll walk you through installing OptionTree and you'll get a chance to see all the various options and filters first hand and in the wild.
@@ -26,16 +32,23 @@ OptionTree is a project partly sponsored by <a href="http://themeforest.net/?ref
 This is a complete list of all the available option types that come shipped with OptionTree.
 
 * Background
+* Border
+* Box Shadow
 * Category Checkbox
 * Category Select
 * Checkbox
-* Color Picker
+* Colorpicker
+* Colorpicker Opacity
 * CSS
 * Custom Post Type Checkbox
 * Custom Post Type Select
 * Date Picker
 * Date Time Picker
+* Dimension
 * Gallery
+* Google Fonts
+* JavaScript
+* Link Color
 * List Item
 * Measurement
 * Numeric Slider
@@ -50,6 +63,7 @@ This is a complete list of all the available option types that come shipped with
 * Sidebar Select
 * Slider
 * Social Links
+* Spacing
 * Tab
 * Tag Checkbox
 * Tag Select
@@ -86,19 +100,23 @@ add_filter( 'ot_theme_mode', '__return_true' );
 /**
  * Required: include OptionTree.
  */
-load_template( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );`
+require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );`
 
 For a list of all the OptionTree UI display filters refer to the `demo-functions.php` file found in the `/assets/theme-mode/` directory of this plugin. This file is the starting point for developing themes with Theme Mode.
 
 == Frequently Asked Questions ==
 
-= I get errors or a blank screen when I activate the plugin. What's the deal? =
-
-The most likely scenario is your theme already has OptionTree installed in Theme Mode. And since the plugin and theme version can't both be active at the same time without the sky falling on your head, your site has decided to throw in the towel. If that's not your issue, open up a support request and we'll figure it out together.
-
 = Is there a demo theme I can install? =
 
 There sure is, and I'm glad you asked. Download and activate the [OptionTree Theme](https://github.com/valendesigns/option-tree-theme) and get some experience setting up OptionTree on your own with detailed directions and tips.
+
+= Why are my translation files not loading? =
+
+It is important to note that when you use OptionTree as a plugin, you must store your language files in the `option-tree/languages` directory and use file names like `option-tree-es_ES.mo` & `option-tree-es_ES.po`. However, when using OptionTree in Theme Mode you must also create a `theme-mode` directory inside the `option-tree/languages` directory and store your files there with names like `es_ES.mo` & `es_ES.po`. This is due to the different naming conventions of the `load_plugin_textdomain()` and `load_theme_textdomain()` functions.
+
+= I get errors or a blank screen when I activate the plugin. What's the deal? =
+
+The most likely scenario is your theme already has OptionTree installed in Theme Mode. And since the plugin and theme version can't both be active at the same time without the sky falling on your head, your site has decided to throw in the towel. If that's not your issue, open up a support request and we'll figure it out together. UPDATE: As of OptionTree 2.4.0 the plugin version will not conflict with the Theme Mode version if they are both 2.4.0 or higher.
 
 == Screenshots ==
 
@@ -107,6 +125,128 @@ There sure is, and I'm glad you asked. Download and activate the [OptionTree The
 3. Documentation
 
 == Changelog ==
+
+= 2.6.0 =
+* Fix a reflected XSS vulnerability with the `add_list_item` & `add_social_links` Ajax requests.
+* Fix the Google Fonts URL so it passed the W3 Validator. props @BassemN
+* Fix `global_admin_css` so it's only enqueued when needed.
+* Fix `dynamic.css` so that a child theme doesn't load the styles saved to the parent theme.
+* Add filter `ot_recognized_post_format_meta_boxes` to support additional post formats meta boxes. props @BassemN
+* Add action `ot_do_settings_fields_before` & `ot_do_settings_fields_after`. props @BassemN, @valendesigns
+* Add Text Domain to plugin file to fully support the new translate.wordpress.org Language Packs.
+* Fix notice in PHP 7.0.0 props @Zackio
+
+= 2.5.5 =
+* Hotfix - Allow a `0` value to be saved with certain option types. Contributors via github @BassemN.
+* Hotfix - Stop media from being attached to the OptionTree post type when uploaded from the media manager or customizer. Contributors via github @earnjam, and @valendesigns.
+* Hotfix - Added filter `ot_load_dynamic_css` to explicitly turn the feature off if desired.
+* Hotfix - Stopped `dynamic.css` created with other themes from being loaded elsewhere.
+
+= 2.5.4 =
+* Hotfix - Support for WordPress 4.2 term splitting.
+* Hotfix - Removed any potential XSS security issues with `add_query_arg` by escaping it.
+* Hotfix - Fixed an issue where Visual Composer was indirectly destroying OptionTree meta box values.
+* Hotfix - Fixed an issue where the select field value was not visible. Contributors via github @sabbirk15.
+
+= 2.5.3 =
+* Hotfix - Added `inherit` fallback to the `border` option type in dynamic.css.
+* Hotfix - Added `none` fallback to the `box-shadow` option type in dynamic.css.
+* Hotfix - Added `inherit` fallback to the `colorpicker` option type in dynamic.css.
+* Hotfix - Added `inherit` fallback to the `colorpicker-opacity` option type in dynamic.css.
+* Hotfix - Added filter `ot_insert_css_with_markers_fallback` to filter the `dynamic.css` fallback value.
+* Hotfix - Added filter `ot_type_radio_image_attributes` to filter the image attributes for each radio choice. Contributors via github @BassemN, and @valendesigns.
+* Hotfix - Refactored `ot_insert_css_with_markers` to remove confusing & unnecessary PHP statements and fix whitespace.
+* Hotfix - Fixed an issue in `ot_insert_css_with_markers` where the `$option_type` variable was not being set properly.
+* Hotfix - Fixed an issue where having multiple Google Fonts option types caused the "Add Google Font" button to insert multiple dropdowns.
+
+= 2.5.2 =
+* Hotfix - Added `inherit` fallback to the `link-color` option type in dynamic.css.
+* Hotfix - Remove `$.browser.msie` JS error caused by function being deprecated.
+* Hotfix - Change `hover` to `mouseenter mouseleave` to stop jQuery migrate error message.
+* Hotfix - Don't allow duplicate Google Fonts in the `ot-google-fonts-css` enqueue.
+* Hotfix - Fixed an issue with the CSS and JavaScript option types not being initiating inside of tabs.
+* Hotfix - Fixed metabox tab styles for mobile.
+* Hotfix - Separate the post formats JS so it does not interfere with the default behavior and loads only as needed.
+* Hotfix - Adding the `not-sortable` class to the List Item option type will remove the sortable feature for that option.
+
+= 2.5.1 =
+* Hotfix - Overhaul the Colorpicker Opacity option type so it saves rgba values, not arrays.
+* Hotfix - Added the ability to set opacity on any colorpicker with the `ot-colorpicker-opacity` class.
+* Hotfix - Don't use `esc_url_raw` to filter the Upload option type when it's saving an attachment ID. Contributors via github @RistoNiinemets.
+* Hotfix - Show an error message to user if unable to write to the `dynamic.css` file. Contributors via github @johnh10, and @valendesigns.
+* Hotfix - Force the `ot_google_fonts` array to be rebuilt when switching between themes.
+* Hotfix - Stop theme check from nagging about using `add_menu_page` in `ot-cleanup-api.php`.
+
+= 2.5.0 =
+* Added the Google Fonts option type. Contributors via github @maimairel, and @valendesigns.
+* Added the Border option type. Contributors via github @doitmax, and @valendesigns.
+* Added the Box Shadow option type. Contributors via github @doitmax, and @valendesigns.
+* Added the Colorpicker Opacity option type. Contributors via github @doitmax, and @valendesigns.
+* Added the Dimension option type. Contributors via github @doitmax, and @valendesigns.
+* Added the JavaScript option type.
+* Added the Link Color option type. Contributors via github @doitmax, and @valendesigns.
+* Added the Spacing option type. Contributors via github @doitmax, and @valendesigns.
+* Fixed an issue where the Colorpicker was not parsing conditions on `change` or `clear`.
+* Fixed the Colorpicker styles on mobile devices.
+* Show the Colorpicker setting ID inside the error message string when the value is invalid.
+* Added an 'on change' trigger to the Numeric Slider's hidden input. Contributors via github @cubell.
+* Stop Theme Check from complaining about the `register_post_type()` function being used in Theme Mode.
+* Added styles that clean up the appearance of the included Font Awesome icons in section tabs.
+* Fixed jQuery UI style conflicts created by the WP Review plugin.
+* Changed the sanitization function from `sanitize_text_field` to `esc_url_raw` for the Upload option type.
+* Added filter `ot_dequeue_jquery_ui_css_screen_ids` to dequeue `jquery-ui-css` by screen ID.
+* Added filter `ot_on_off_switch_on_value` to filter the value of the On button. Contributors via github @BassemN, and @valendesigns.
+* Added filter `ot_on_off_switch_on_label` to filter the label of the On button. Contributors via github @BassemN, and @valendesigns.
+* Added filter `ot_on_off_switch_off_value` to filter the value of the Off button. Contributors via github @BassemN, and @valendesigns.
+* Added filter `ot_on_off_switch_off_label` to filter the label of the Off button. Contributors via github @BassemN, and @valendesigns.
+* Added filter `ot_on_off_switch_width` to filter the width of the On/Off switch.
+* Added filter `ot_type_date_picker_readonly` to filter the addition of the readonly attribute.
+* Added filter `ot_type_date_time_picker_readonly` to filter the addition of the readonly attribute.
+* Added filter `ot_admin_menu_priority` to filter the `admin_menu` action hook priority.
+* Added Estonian translation. Contributors via github @tjuris, and @RistoNiinemets.
+* Fixed an issue where changes to `theme-options.php` required a second page load.
+* Fixed the clean up script, it only displays when there's something to clean up. No more menu item!
+* Update demo files with the latest option types.
+* Changed where `ot_css_file_paths` is saved when `is_multisite` for better `dynamic.css` file support.
+* Changed the default `dynamic.css` file path in multisite to be `dynamic-{current-blog-id}.css`.
+
+= 2.4.6 =
+* Hotfix - Added a clean up script to consolidate orphaned media posts and remove the old and unused `wp_option_tree` table.
+* Hotfix - Fixed an issue where `ot_get_media_post_ID()` was never able to set the value of the `ot_media_post_ID` option because it was already set to empty. Causing the `ot_create_media_post()` function to create multiple media posts.
+
+= 2.4.5 =
+* Hotfix - Fixed an issue where `ot_get_media_post_ID()` was setting the value of the `ot_media_post_ID` option to `null`. Causing the `ot_create_media_post()` function to create multiple media posts. A clean up script will be added to `2.5.0`.
+
+= 2.4.4 =
+* Hotfix - Fixed undefined index caused by shorthand conditional.
+* Hotfix - Fixed jQuery UI style conflicts created by the Easy Digital Downloads plugin.
+* Hotfix - Added placeholder to background-image. Contributors via github @BassemN.
+
+= 2.4.3 =
+* Hotfix - WordPress 4.0 compatible.
+* Hotfix - Fixed an issue where all media was being attached to the default OptionTree media post.
+* Hotfix - Removed the deprecated `screen_icon()` function.
+* Hotfix - Fixed the `ot_line_height_range_interval` filter being misnamed as `ot_line_height_unit_type`. Contributors via github @youri--.
+* Hotfix - Fixed a conflict with "Frontend Publishing Pro" when using the media uploader on the front-end.
+* Hotfix - Increase condition performance. Contributors via github @designst.
+* Hotfix - Add custom style classes to list-item settings. Contributors via github @designst.
+* Hotfix - Check for `post_title` instead of `post_name` in `ot_get_media_post_ID()`. Contributors via github @clifgriffin.
+* Hotfix - Store the return value of `ot_get_media_post_ID()` in the options table as `ot_media_post_ID`.
+* Hotfix - Added padding to List Items options to reflect the same UI as individual options. Contributors via github @valendesigns and @designst.
+* Hotfix - Fixed a bug that caused the Social Links option type to not properly import.
+
+= 2.4.2 =
+* Hotfix - Fixed a PHP notice that was created when `background-size` in the Background option type is undefined.
+* Hotfix - Fixed an issue with the Upload option type, in attachment ID mode, not storing its value.
+* Hotfix - Replaced `load_template` with `require` throught the documentation.
+* Hotfix - Added a settings ID auto-fill that is based on the text of the settings label in the Theme Options UI Builder. Contributors via github @valendesigns and @Ore4444.
+* Hotfix - Added filter `ot_override_forced_textarea_simple` to allow the Textarea option type to be moved in the DOM and not replaced with the Textarea Simple option type in meta boxes and list items.
+
+= 2.4.1 =
+* Hotfix - Fixed a typo in the demo Theme Options related to the `social-links`.
+* Hotfix - Fixed the language directory path conflict between IIS and Linux while in Theme Mode.
+* Hotfix - Fixed a style issue where select fields would overflow their parent elements.
+* Hotfix - Fixed a PHP notice that was created when the Measurement option type did not have a saved value.
 
 = 2.4.0 =
 * Added filter 'ot_post_formats' which loads meta boxes specifically for post formats.
@@ -411,7 +551,7 @@ There sure is, and I'm glad you asked. Download and activate the [OptionTree The
 * Revert functions.load.php, will fix and update in next version
 
 = 1.1.7 =
-* Added layout (theme variation) support with save/delete/activate/import/export capabilities. Contributions form Brian of flauntbooks.com
+* Added layout (theme variation) support with save/delete/activate/import/export capabilities.
 * Allow layout change on Theme Options page.
 * Full Multisite compatibility by manually adding xml mime type for import options.
 * Replaced eregi() with preg_match() for 5.3+ compatibility.

@@ -26,8 +26,6 @@ function roots_scripts() {
             'js' => '/assets/js/scripts.js',
             'modernizr' => '/assets/vendor/modernizr/modernizr.js',
             'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js',
-            'bootstrapvalidatorcss' => '/assets/vendor/bootstrapValidator/dist/css/bootstrapValidator.css',
-            'bootstrapvalidatorcss' => '/assets/vendor/bootstrapValidator/dist/js/bootstrapValidator.js'
         );
     } else {
         $get_assets = file_get_contents(get_template_directory() . '/assets/manifest.json');
@@ -37,13 +35,10 @@ function roots_scripts() {
             'js' => '/assets/js/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
             'modernizr' => '/assets/js/vendor/modernizr.min.js',
             'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
-            'bootstrapvalidatorcss' => '/assets/vendor/bootstrapValidator/dist/css/bootstrapValidator.min.css',
-            'bootstrapvalidatorjs' => '/assets/vendor/bootstrapValidator/dist/js/bootstrapValidator.min.js'
         );
     }
 
     wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
-    wp_enqueue_style('bootstrapvalidatorcss', get_template_directory_uri() . $assets['bootstrapvalidatorcss'], false, null);
 
     /**
      * jQuery is loaded using the same method from HTML5 Boilerplate:
@@ -67,8 +62,6 @@ function roots_scripts() {
     wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, false);
     wp_enqueue_script('jquery');
     wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
-    wp_enqueue_script('bootstrapvalidatorjs', get_template_directory_uri() . $assets['bootstrapvalidatorjs'], array(), null, true);
-    
 }
 
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);

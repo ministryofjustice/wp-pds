@@ -14,3 +14,23 @@ function roots_get_search_form($form) {
   return $form;
 }
 add_filter('get_search_form', 'roots_get_search_form');
+
+/**
+ * Checks if the ACF field is empty.
+ *
+ * @param string $field_name
+ * @param int|bool $post_id (optional)
+ * @return bool
+ */
+function field_is_empty($field_name, $post_id = false) {
+  $value = get_field($field_name, $post_id);
+  return empty($value);
+}
+
+function debug($var) {
+  if (WP_DEBUG) {
+    echo '<pre>';
+    print_r( $var );
+    echo '</pre>';
+  }
+}

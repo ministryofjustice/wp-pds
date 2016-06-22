@@ -14,37 +14,37 @@ the_post();
     <?php the_content(); ?>
 
     <?php while (have_rows('positions')): the_row(); ?>
-      <section class="lawyer-position">
+      <section class="people-group">
         <h2><?php the_sub_field('name'); ?></h2>
 
         <div class="lawyer-profiles row">
-          <?php $i = 1; ?>
-          <?php while (have_rows('lawyers')): the_row(); ?>
-            <div class="person col-sm-3 col-xs-6">
-              <?php
+          <?php
 
-              $name = get_sub_field('name');
-              $image = get_sub_field('photo');
-              $bio   = get_sub_field('biography');
+          $lawyers = get_sub_field('lawyers');
+          $lawyers_count = count($lawyers);
 
-              ?>
-              <img src="<?php echo $image['sizes']['advocate_slide_thumb']; ?>" alt="Photo of <?php echo esc_attr($name); ?>" class="person__photo">
-              <div class="person__name"><?php the_sub_field('name'); ?></div>
+          if ($lawyers_count > 2) {
+            $use_template = 'person-small';
+          } else {
+            $use_template = 'person-wide';
+          }
 
-              <?php if (!empty($bio)): ?>
-              <div class="person__bio-link">
-                <a href="<?php echo $bio['url']; ?>" title="Download <?php echo esc_attr($name); ?>'s full profile">Full Profile</a>
-              </div>
-              <?php endif; ?>
-            </div>
+          $i = 1;
+          while (have_rows('lawyers')) {
+            the_row();
+            get_template_part('templates/person/' . $use_template);
 
-            <?php if ($i % 4 === 0): ?>
-              <div class="clearfix"></div>
-            <?php elseif ($i % 2 === 0): ?>
-              <div class="clearfix visible-xs-block visible-xs-block"></div>
-            <?php endif; ?>
-            <?php $i++; ?>
-          <?php endwhile; ?>
+            if ($i % 4 === 0) {
+              echo '<div class="clearfix"></div>';
+            }
+            else if ($i % 2 === 0) {
+              echo '<div class="clearfix visible-xs-block visible-xs-block"></div>';
+            }
+
+            $i++;
+          }
+
+          ?>
         </div>
       </section>
     <?php endwhile; ?>
@@ -86,6 +86,15 @@ the_post();
         </dd>
       <?php endif; ?>
     </dl>
+
+    <h2>More Information</h2>
+    <ul>
+      <li><a href="#">Directions to our Cheltenham office</a></li>
+      <li><a href="#">Directions to Cheltenham Magistrates</a></li>
+      <li><a href="#">Directions to Cheltenham Police Station</a></li>
+      <li><a href="#">Directions to Cheltenham Crown Court</a></li>
+    </ul>
+
   </div>
 </div>
 

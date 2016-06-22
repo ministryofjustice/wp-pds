@@ -16,7 +16,7 @@ $bio   = get_sub_field('biography');
     </div>
     <div class="col-sm-8">
       <div class="person__name"><?php the_sub_field('name'); ?></div>
-      
+
       <?php if (!empty($bio)): ?>
         <div class="person__bio-link">
           <span class="faux-link">Full Profile</span>

@@ -81,3 +81,30 @@ update_option('wpe-rand-enabled', 1);
 function orderbyreplace($orderby) {
     return str_replace('wp_posts.menu_order', 'wp_postmeta.meta_value, mt1.meta_value', $orderby);
 }
+
+/**
+ * Get the 'site section' for the current page.
+ * Returns either 'advocates' or 'solicitors',
+ * or false if on an unknown page.
+ *
+ * @return string|false
+ */
+function get_site_section() {
+  $breadcrumbs = new Roots_Breadcrumbs();
+  $trail = $breadcrumbs->get_trail();
+
+  if (count($trail) < 2) {
+    return false;
+  }
+
+  $page = $trail[1];
+  if ($page->post_name == 'advocates') {
+    return 'advocates';
+  }
+  else if ($page->post_name == 'solicitors') {
+    return 'solicitors';
+  }
+  else {
+    return false;
+  }
+}

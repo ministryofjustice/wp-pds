@@ -1,17 +1,20 @@
 <?php get_template_part('templates/head'); ?>
 <?php
-$advocate_page = get_page_by_path('advocates');
-if (!is_front_page()) {
-    if (is_tree($advocate_page->ID)) {
-        $extra_body = 'advocate-pages';
-    } else {
-        $extra_body = 'solicitors-pages';
-    }
-} else {
-    $extra_body = "";
+
+$body_classes = array(
+  'advocates' => 'advocate-pages',
+  'solicitors' => 'solicitors-pages',
+);
+$section = get_site_section();
+if ($section) {
+  $class = $body_classes[$section];
 }
+else {
+  $class = '';
+}
+
 ?>
-<body <?php body_class(get_post( $post )->post_name . " " . $extra_body); ?>>
+<body <?php body_class(get_post( $post )->post_name . " " . $class); ?>>
 
     <!--[if lt IE 8]>
       <div class="alert alert-warning">

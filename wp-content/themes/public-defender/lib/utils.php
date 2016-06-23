@@ -29,8 +29,6 @@ function field_is_empty($field_name, $post_id = false) {
 
 function debug($var) {
   if (WP_DEBUG) {
-    echo '<pre>';
-    print_r( $var );
-    echo '</pre>';
+    echo '<pre>' . htmlspecialchars(print_r($var, true)) . '</pre>';
   }
 }

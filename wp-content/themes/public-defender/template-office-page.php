@@ -85,13 +85,26 @@ the_post();
       <?php endif; ?>
     </dl>
 
-    <h2>Useful Information</h2>
-    <ul>
-      <li><a href="#">Directions to our Cheltenham office</a></li>
-      <li><a href="#">Directions to Cheltenham Magistrates</a></li>
-      <li><a href="#">Directions to Cheltenham Police Station</a></li>
-      <li><a href="#">Directions to Cheltenham Crown Court</a></li>
-    </ul>
+    <?php
+
+    $children = get_children(array(
+      'post_parent' => get_the_ID(),
+      'post_type' => 'page',
+      'post_status' => 'publish',
+      'numberposts' => -1,
+      'orderby' => 'title',
+      'order' => 'ASC',
+    ));
+
+    ?>
+    <?php if (count($children) > 0): ?>
+      <h2>Useful Information</h2>
+      <ul>
+        <?php foreach ($children as $page): ?>
+          <li><a href="<?php echo esc_attr(get_permalink($page)); ?>"><?php echo get_the_title($page); ?></a></li>
+        <?php endforeach; ?>
+      </ul>
+    <?php endif; ?>
 
   </div>
 </div>

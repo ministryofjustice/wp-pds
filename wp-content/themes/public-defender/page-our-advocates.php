@@ -1,8 +1,7 @@
 <?php $advocacy_head = get_page_by_title("David Aubrey QC", "OBJECT", "advocate"); ?>
-<div id="page-header"></div>
-<div class="page-header">
-    <h1><?php the_title(); ?></h1>
-</div>
+
+<?php get_template_part('templates/page-header'); ?>
+
 <div id="advocates-container">
     <h2>Head of Advocacy</h2>
     <div class="row" id="head-advocates">

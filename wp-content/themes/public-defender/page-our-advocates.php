@@ -2,172 +2,217 @@
 
 <?php get_template_part('templates/page-header'); ?>
 
-<div id="advocates-container">
-    <h2>Head of Advocacy</h2>
-    <div class="row" id="head-advocates">
-        <?php
-        $qc_advocates_args = array(
-            'posts_per_page' => -1,
-            'post_type' => 'advocate',
-            'p' => $advocacy_head->ID,
-        );
-        $qc_advocates = new WP_Query($qc_advocates_args);
-        if ($qc_advocates->have_posts()) {
-            $slide_count = 0;
-            while ($qc_advocates->have_posts()) {
-                $qc_advocates->the_post();
-                ?>
-                <article class="col-lg-12 advocate-bio advocate-<?php the_ID(); ?>">
-                    <a class='col-md-2 col-sm-6 col-xs-6' href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('advocate_slide_thumb', array(
-                                'class' => 'advocate-picture'
-                            ));
-                        } else {
-                            echo "<img class='advocate-picture' height=190 src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
-                        }
-                        ?>
-                    </a>
-                    <div class='col-md-4 col-sm-6 col-xs-6'>
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
-                            <div class="advocate-name"><?php the_title(); ?></div>
-                        </a>
-                        <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
-                        <div class="advocate-bio-link">
-                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
-                        </div>
-                    </div>
-                </article>
-                <?php
-            }
-        }
+<div id="advocates-container people-group">
+  <h2>Head of Advocacy</h2>
+  <div class="row" id="head-advocates">
+    <?php
+    $qc_advocates_args = array(
+      'posts_per_page' => -1,
+      'post_type' => 'advocate',
+      'p' => $advocacy_head->ID,
+    );
+    $qc_advocates = new WP_Query($qc_advocates_args);
+    if ($qc_advocates->have_posts()) {
+      $slide_count = 0;
+      while ($qc_advocates->have_posts()) {
+        $qc_advocates->the_post();
         ?>
-    </div>
-    <h2>QCs</h2>
-    <div class="row" id="qc-advocates">
+        <div class="col-md-8">
+          <div class="row">
+            <?php
+
+            $name = get_the_title();
+
+            $image_id = get_post_thumbnail_id();
+            $image = acf_get_attachment($image_id);
+
+            $profile_link = get_metadata('post', get_the_ID(), 'advocate-cv', true);
+            if (empty($profile_link)) {
+              $profile_link = false;
+            }
+
+            $summary = get_metadata('post', get_the_ID(), 'advocate-brief', true);
+            if (empty($summary)) {
+              $summary = false;
+            }
+
+            $vars = compact('name', 'image', 'profile_link', 'summary');
+
+            template_part('templates/person/person-wide', $vars);
+
+            ?>
+          </div>
+        </div>
         <?php
-        $qc_advocates_args = array(
-            'posts_per_page' => -1,
-            'post_type' => 'advocate',
-            'orderby' => 'menu_order',
-            'order' => 'ASC',
-            'post__not_in' => array($advocacy_head->ID),
-            'meta_query' => array(
-                array(
-                    'key' => 'advocate-call',
-                    'value' => '',
-                    'compare' => 'LIKE'
-                ),
-                array(
-                    'key' => 'advocate-surname',
-                    'value' => '',
-                    'compare' => 'LIKE'
-                )
+      }
+    }
+    ?>
+  </div>
+
+  <h2>QCs</h2>
+  <div class="row" id="qc-advocates">
+    <?php
+    $qc_advocates_args = array(
+      'posts_per_page' => -1,
+      'post_type' => 'advocate',
+      'orderby' => 'menu_order',
+      'order' => 'ASC',
+      'post__not_in' => array(
+        $advocacy_head->ID
+      ),
+      'meta_query' => array(
+        array(
+          'key' => 'advocate-call',
+          'value' => '',
+          'compare' => 'LIKE'
+        ),
+        array(
+          'key' => 'advocate-surname',
+          'value' => '',
+          'compare' => 'LIKE'
+        )
+      ),
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'advocate-type',
+          'field' => 'slug',
+          'terms' => 'qc'
+        )
+      )
+    );
+    add_filter('posts_orderby','orderbyreplace');
+    $qc_advocates = new WP_Query($qc_advocates_args);
+    remove_filter('posts_orderby','orderbyreplace');
+    if ($qc_advocates->have_posts()) {
+      $slide_count = 0;
+      $i = 1;
+      while ($qc_advocates->have_posts()) {
+        $qc_advocates->the_post();
+
+        // Hide advocates that have no photo
+        if (!has_post_thumbnail()) {
+          continue;
+        }
+
+        $name = get_the_title();
+
+        $image_id = get_post_thumbnail_id();
+        $image = acf_get_attachment($image_id);
+
+        $profile_link = get_metadata('post', get_the_ID(), 'advocate-cv', true);
+        if (empty($profile_link)) {
+          $profile_link = false;
+        }
+
+        $summary = get_metadata('post', get_the_ID(), 'advocate-brief', true);
+        if (empty($summary)) {
+          $summary = false;
+        }
+
+        $col_width = array(
+          'md' => 2,
+          'sm' => 3,
+        );
+
+        $vars = compact('name', 'image', 'profile_link', 'summary', 'col_width');
+
+        template_part('templates/person/person-small', $vars);
+
+        if ($i % 6 === 0) {
+          echo '<div class="clearfix"></div>';
+        }
+        else if ($i % 4 === 0) {
+          echo '<div class="clearfix visible-sm-block"></div>';
+        }
+        else if ($i % 2 === 0) {
+          echo '<div class="clearfix visible-xs-block"></div>';
+        }
+
+        $i++;
+      }
+    }
+    ?>
+  </div>
+  
+  <h2>Higher Court Advocates</h2>
+  <div class="row" id="non-qc-advocates">
+    <?php
+    $non_qc_advocates_args = array(
+        'posts_per_page' => -1,
+        'post_type' => 'advocate',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'meta_query' => array(
+            array(
+                'key' => 'advocate-call',
+                'value' => '',
+                'compare' => 'LIKE'
             ),
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'advocate-type',
-                    'field' => 'slug',
-                    'terms' => 'qc'
-                )
+            array(
+                'key' => 'advocate-surname',
+                'value' => '',
+                'compare' => 'LIKE'
             )
-        );
-        add_filter('posts_orderby','orderbyreplace');
-        $qc_advocates = new WP_Query($qc_advocates_args);
-        remove_filter('posts_orderby','orderbyreplace');
-        if ($qc_advocates->have_posts()) {
-            $slide_count = 0;
-            while ($qc_advocates->have_posts()) {
-                $qc_advocates->the_post();
-                // Hide advocates that have no photo
-                if (has_post_thumbnail()) {
-                    ?>
-                    <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
-                            <?php
-                            if (has_post_thumbnail()) {
-                                the_post_thumbnail('advocate_slide_thumb', array(
-                                    'class' => 'advocate-picture'
-                                ));
-                            } else {
-                                echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
-                            }
-                            ?>
-                            <div class="advocate-name"><?php the_title(); ?></div>
-                        </a>
-                        <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
-                        <div class="advocate-bio-link">
-                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
-                        </div>
-                    </article>
-                    <?php
-                }
-            }
-        }
-        ?>
-    </div>
-    <h2>Higher Court Advocates</h2>
-    <div class="row" id="non-qc-advocates">
-        <?php
-        $non_qc_advocates_args = array(
-            'posts_per_page' => -1,
-            'post_type' => 'advocate',
-            'orderby' => 'menu_order',
-            'order' => 'ASC',
-            'meta_query' => array(
-                array(
-                    'key' => 'advocate-call',
-                    'value' => '',
-                    'compare' => 'LIKE'
-                ),
-                array(
-                    'key' => 'advocate-surname',
-                    'value' => '',
-                    'compare' => 'LIKE'
-                )
-            ),
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'advocate-type',
-                    'field' => 'slug',
-                    'terms' => 'qc',
-                    'operator' => 'NOT IN'
-                )
+        ),
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'advocate-type',
+                'field' => 'slug',
+                'terms' => 'qc',
+                'operator' => 'NOT IN'
             )
-        );
-        add_filter('posts_orderby','orderbyreplace');
-        $non_qc_advocates = new WP_Query($non_qc_advocates_args);
-        remove_filter('posts_orderby','orderbyreplace');
-        if ($non_qc_advocates->have_posts()) {
-            $slide_count = 0;
-            while ($non_qc_advocates->have_posts()) {
-                $non_qc_advocates->the_post();
-                // Hide advocates that have no photo
-                if (has_post_thumbnail()) {
-                    ?>
-                    <article class="col-md-2 col-sm-6 col-xs-12 advocate-bio advocate-<?php the_ID(); ?>">
-                        <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">
-                            <?php
-                            if (has_post_thumbnail()) {
-                                the_post_thumbnail('advocate_slide_thumb', array(
-                                    'class' => 'advocate-picture'
-                                ));
-                            } else {
-                                echo "<img height=190 class='advocate-picture' src='" . get_bloginfo('template_url') . "/assets/img/man.png'>";
-                            }
-                            ?>
-                            <div class="advocate-name"><?php the_title(); ?></div>
-                        </a>
-                        <div class="advocate-skills"><?php echo get_metadata('post', get_the_ID(), 'advocate-brief', true) ?></div>
-                        <div class="advocate-bio-link">
-                            <a href="<?php echo get_metadata('post', get_the_ID(), 'advocate-cv', true) ?>">Full Profile</a>
-                        </div>
-                    </article>
-                    <?php
-                }
-            }
+        )
+    );
+    add_filter('posts_orderby','orderbyreplace');
+    $non_qc_advocates = new WP_Query($non_qc_advocates_args);
+    remove_filter('posts_orderby','orderbyreplace');
+    if ($non_qc_advocates->have_posts()) {
+      $slide_count = 0;
+      while ($non_qc_advocates->have_posts()) {
+        $non_qc_advocates->the_post();
+
+        // Hide advocates that have no photo
+        if (!has_post_thumbnail()) {
+          continue;
         }
-        ?>
-    </div>
+
+        $name = get_the_title();
+
+        $image_id = get_post_thumbnail_id();
+        $image = acf_get_attachment($image_id);
+
+        $profile_link = get_metadata('post', get_the_ID(), 'advocate-cv', true);
+        if (empty($profile_link)) {
+          $profile_link = false;
+        }
+
+        $summary = get_metadata('post', get_the_ID(), 'advocate-brief', true);
+        if (empty($summary)) {
+          $summary = false;
+        }
+
+        $col_width = array(
+          'md' => 2,
+          'sm' => 3,
+        );
+
+        $vars = compact('name', 'image', 'profile_link', 'summary', 'col_width');
+
+        template_part('templates/person/person-small', $vars);
+
+        if ($i % 6 === 0) {
+          echo '<div class="clearfix"></div>';
+        }
+        else if ($i % 4 === 0) {
+          echo '<div class="clearfix visible-sm-block"></div>';
+        }
+        else if ($i % 2 === 0) {
+          echo '<div class="clearfix visible-xs-block"></div>';
+        }
+
+        $i++;
+      }
+    }
+    ?>
+  </div>
 </div>

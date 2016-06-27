@@ -30,7 +30,22 @@ the_post();
           $i = 1;
           while (have_rows('lawyers')) {
             the_row();
-            get_template_part('templates/person/' . $use_template);
+
+            $bio = get_sub_field('biography');
+            if (!empty($bio)) {
+              $profile_link = $bio['url'];
+            }
+            else {
+              $profile_link = false;
+            }
+
+            $vars = array(
+              'name' => wptexturize(get_sub_field('name')),
+              'image' => get_sub_field('photo'),
+              'profile_link' => $profile_link,
+              'summary' => wptexturize(get_sub_field('summary')),
+            );
+            template_part('templates/person/' . $use_template, $vars);
 
             if ($i % 4 === 0) {
               echo '<div class="clearfix"></div>';

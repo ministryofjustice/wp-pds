@@ -32,3 +32,38 @@ function debug($var) {
     echo '<pre>' . htmlspecialchars(print_r($var, true)) . '</pre>';
   }
 }
+
+/**
+ * Load a template part into a template
+ *
+ * Similar to the core WordPress function get_template_part(), but with
+ * the option to pass additional variables to the template.
+ *
+ * @param string $template Slug of the template file to include
+ * @param array $vars Variables to pass through to the template
+ * @return void|WP_Error WP_Error is returned if the template could not be found
+ */
+function template_part($template, $vars = array()) {
+  // Add global variables into the scope
+  global $posts, $post, $wp_did_header, $wp_query, $wp_rewrite, $wpdb, $wp_version, $wp, $id, $comment, $user_ID;
+
+  if ( is_array( $wp_query->query_vars ) ) {
+    extract( $wp_query->query_vars, EXTR_SKIP );
+  }
+
+  if ( isset( $s ) ) {
+    $s = esc_attr( $s );
+  }
+
+  // Add variables from $vars array into the scope
+  extract($vars);
+
+  // Locate and include the template file
+  $located = locate_template("{$template}.php");
+  if (!empty($located)) {
+    include $located;
+  }
+  else {
+    return new WP_Error("Unable to locate template '{$template}'");
+  }
+}

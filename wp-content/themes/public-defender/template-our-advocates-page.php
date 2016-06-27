@@ -1,3 +1,9 @@
+<?php
+/**
+ * Template name: Our Advocates page
+ */
+?>
+
 <?php get_template_part('templates/page-header'); ?>
 
 <div class="people-group">

@@ -2,12 +2,16 @@
 /**
  * Template name: Our Advocates page
  */
+the_post();
 ?>
 
 <?php get_template_part('templates/page-header'); ?>
 
-<div class="people-group">
+<?php the_content(); ?>
+
+<section class="people-group">
   <h2>Head of Advocacy</h2>
+
   <div class="row">
     <?php
 
@@ -56,10 +60,11 @@
       </div>
     <?php endwhile; ?>
   </div>
-</div>
+</section>
 
-<div class="people-group">
+<section class="people-group">
   <h2>QCs</h2>
+
   <div class="row">
     <?php
 
@@ -147,10 +152,11 @@
 
     ?>
   </div>
-</div>
+</section>
 
-<div class="people-group">
+<section class="people-group">
   <h2>Higher Court Advocates</h2>
+  
   <div class="row">
     <?php
 
@@ -235,4 +241,4 @@
 
     ?>
   </div>
-</div>
+</section>

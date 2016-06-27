@@ -15,7 +15,7 @@ the_post();
       <section class="people-group">
         <h2><?php the_sub_field('name'); ?></h2>
 
-        <div class="lawyer-profiles row">
+        <div class="row">
           <?php
 
           $lawyers = get_sub_field('lawyers');

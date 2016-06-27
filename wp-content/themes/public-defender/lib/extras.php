@@ -4,10 +4,22 @@
  * Clean up the_excerpt()
  */
 function roots_excerpt_more($more) {
-    return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'roots') . '</a>';
+    return '&hellip; <a href="' . get_permalink() . '" title="Read the rest of this article" class="excerpt-permalink">' . __('Read more', 'roots') . '</a>';
 }
 
 add_filter('excerpt_more', 'roots_excerpt_more');
+
+/**
+ * Limit length of auto-generated excerpts
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function roots_excerpt_length($length) {
+  return 30;
+}
+add_filter('excerpt_length', 'roots_excerpt_length');
+
 
 /**
  * Manage output of wp_title()
@@ -57,10 +69,6 @@ require_once (trailingslashit(get_template_directory()) . 'option-tree/ot-loader
  * Meta Boxes
  */
 load_template(trailingslashit(get_template_directory()) . 'lib/meta-boxes.php');
-
-// Set image size
-add_image_size('advocate_slide', 242, 190, true);
-add_image_size('advocate_slide_thumb', 160, 190, true);
 
 // Prevent default fields in optiontree listitem
 add_filter('ot_list_item_settings', 'filter_ot_list_item_settings', 10, 2);

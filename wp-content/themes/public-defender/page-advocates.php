@@ -49,6 +49,7 @@
                 <?php
             }
         }
+        wp_reset_postdata();
         ?>
     </div>
 </div>
@@ -61,28 +62,13 @@
     <p>To find out more about our advocates, please visit <a href="<?php echo site_url('advocates/our-advocates/') ?>">Our Advocates</a> page.</p>
     <p>To contact us or speak to our clerk, please visit the <a href="<?php echo site_url('advocates/contact-us/') ?>">Contact Us</a> page.</p>
 </div>
-<div id="advocates-news" class="col-md-4">
-    <h2>News Feed</h2>
-    <?php
-    wp_reset_query();
-    $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => 3,
-    );
 
-    $query = new WP_Query( $args );
+<aside class="col-md-4">
+  <?php
 
-    // The Loop
-    if ( $query->have_posts() ) {
-        while ( $query->have_posts() ) {
-            $query->the_post();
-            echo '<h3><a href="' . get_permalink( ) . '">' .  get_the_title() . '</a></h3>';
-            echo "<time datetime='" . get_the_date() . "'>" . get_the_date("F d Y") . "</time>";
-            the_excerpt();
+  $news_category_slug = get_post_meta($post->ID, 'news-category', true);
+  $news_category = get_term_by('slug', $news_category_slug, 'category');
+  template_part('templates/news-feed', compact('news_category'));
 
-        }
-    }
-    wp_reset_postdata();
-    ?>
-    <p><a href="/news/">All News</a></p>
-</div>
+  ?>
+</aside>

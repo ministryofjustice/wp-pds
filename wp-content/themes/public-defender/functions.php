@@ -26,6 +26,7 @@ $roots_includes = array(
     'lib/meta-box-array.php', // Meta boxes
     'lib/ajax.php', // AJAX boxes
     'lib/breadcrumbs.php', // Breadcrumbs
+    'lib/shortcodes.php', // Custom shortcodes
 
     // Custom post types
     'lib/cpt/advocate.php', // Advocate

@@ -24,6 +24,7 @@ function roots_setup() {
     // Set image size
     add_image_size('advocate_slide', 242, 190, true);
     add_image_size('advocate_slide_thumb', 160, 190, true);
+    add_image_size('deep_link', 600, 400, true);
 //    set_post_thumbnail_size(150, 150);
 
     // Add HTML5 markup for captions

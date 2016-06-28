@@ -1,13 +1,12 @@
 <?php get_template_part('templates/page', 'header'); ?>
 
-<div class="alert alert-warning">
-  <?php _e('Sorry, but the page you were trying to view does not exist.', 'roots'); ?>
-</div>
+<p class="lead">Sorry, we couldn't find the page that you're looking for.</p>
 
-<p><?php _e('It looks like this was the result of either:', 'roots'); ?></p>
+<p>This could have happened for a few reasons. You may have:</p>
 <ul>
-  <li><?php _e('a mistyped address', 'roots'); ?></li>
-  <li><?php _e('an out-of-date link', 'roots'); ?></li>
+  <li>Clicked on an out-of-date link</li>
+  <li>Mistyped the URL in your browser address bar</li>
+  <li>Found a problem with our website</li>
 </ul>
 
-<?php get_search_form(); ?>
+<p>We suggest that you <a href="<?php echo home_url('/'); ?>">go to our homepage</a> and try again. If you still can't find what you're looking for, please <a href="#footer-contact">get in touch</a> and we'll do our best to help.</p>

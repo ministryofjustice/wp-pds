@@ -101,7 +101,7 @@ function get_site_section() {
   $breadcrumbs = new Roots_Breadcrumbs();
   $trail = $breadcrumbs->get_trail();
 
-  if (count($trail) < 2) {
+  if (count($trail) < 2 || get_class($trail[1]) !== 'WP_Post') {
     return false;
   }
 

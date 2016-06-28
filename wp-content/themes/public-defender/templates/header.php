@@ -15,16 +15,26 @@
         <nav class="collapse navbar-collapse" role="navigation">
             <div class="advocate-phone">Please contact our Senior Clerk, Robin Driscoll, on 020 3334 4253 / 6163 / 2837</div>
             <?php
-            if (!is_page('home')) {
-                $advocate_page = get_page_by_path('advocates');
-                if (is_tree($advocate_page->ID) || is_single() || is_home()) {
-                    wp_nav_menu(array('theme_location' => 'primary_navigation_advocates', 'menu_class' => 'nav navbar-nav'));
-                } else {
-                    wp_nav_menu(array('theme_location' => 'primary_navigation_solicitors', 'menu_class' => 'nav navbar-nav'));
-                }
-            } else {
-                wp_nav_menu(array('theme_location' => 'primary_navigation_home', 'menu_class' => 'nav navbar-nav'));
+
+            switch (get_site_section()) {
+              case 'advocates':
+                $theme_location = 'primary_navigation_advocates';
+                break;
+
+              case 'solicitors':
+                $theme_location = 'primary_navigation_solicitors';
+                break;
+
+              default:
+                $theme_location = 'primary_navigation_home';
+                break;
             }
+
+            wp_nav_menu(array(
+              'theme_location' => $theme_location,
+              'menu_class' => 'nav navbar-nav',
+            ));
+            
             ?>
         </nav>
     </div>

@@ -1,7 +1,7 @@
 <?php
 
 $breadcrumbs = new Roots_Breadcrumbs();
-$crumbs      = $breadcrumbs->get_crumbs();
+$crumbs = $breadcrumbs->get_crumbs();
 
 ?>
 

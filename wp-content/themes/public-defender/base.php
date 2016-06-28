@@ -1,20 +1,24 @@
 <?php get_template_part('templates/head'); ?>
 <?php
 
-$body_classes = array(
+$class = array();
+
+$section_class_map = array(
   'advocates' => 'advocate-pages',
   'solicitors' => 'solicitors-pages',
 );
+
 $section = get_site_section();
 if ($section) {
-  $class = $body_classes[$section];
+  $class[] = $section_class_map[$section];
 }
-else {
-  $class = '';
+
+if ($post && $post->post_type == 'page') {
+  $class[] = $post->post_name;
 }
 
 ?>
-<body <?php body_class(get_post( $post )->post_name . " " . $class); ?>>
+<body <?php body_class(implode(' ', $class)); ?>>
 
     <!--[if lt IE 8]>
       <div class="alert alert-warning">

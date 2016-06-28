@@ -46,6 +46,13 @@ class Roots_Breadcrumbs {
             'url' => get_term_link($item),
           );
           break;
+
+        case 'stdClass':
+          $crumbs[] = array(
+            'title' => $item->title,
+            'url' => $item->url,
+          );
+          break;
       }
     }
 
@@ -66,6 +73,9 @@ class Roots_Breadcrumbs {
     else if (is_category()) {
       $this->add_category();
     }
+    else if (is_404()) {
+      $this->add_404();
+    }
 
     return $this->trail;
   }
@@ -73,6 +83,13 @@ class Roots_Breadcrumbs {
   public function add_front_page() {
     $front_page_id = get_option('page_on_front');
     $this->trail[] = get_post($front_page_id);
+  }
+
+  public function add_404() {
+    $this->trail[] = (object) array(
+      'title' => 'Page not found',
+      'url' => $_SERVER['REQUEST_URI'],
+    );
   }
 
   public function add_page_trail() {

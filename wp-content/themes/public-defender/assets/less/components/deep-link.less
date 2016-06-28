@@ -8,14 +8,18 @@
   text-decoration: none;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
-  transition: -webkit-filter 0.4s ease-in-out, filter 0.4s ease-in-out;
+  transition: -webkit-filter 0.3s ease-in-out, filter 0.3s ease-in-out;
   margin: 1em 0;
 
   &,
+  &:focus,
+  &:active,
   &:hover {
     color: #fff;
   }
 
+  &:focus,
+  &:active,
   &:hover {
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);

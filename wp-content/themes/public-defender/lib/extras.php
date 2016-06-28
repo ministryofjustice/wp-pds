@@ -16,7 +16,12 @@ add_filter('excerpt_more', 'roots_excerpt_more');
  * @return int (Maybe) modified excerpt length.
  */
 function roots_excerpt_length($length) {
-  return 30;
+  if (is_category()) {
+    return $length;
+  }
+  else {
+    return 30;
+  }
 }
 add_filter('excerpt_length', 'roots_excerpt_length');
 

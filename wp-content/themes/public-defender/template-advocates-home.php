@@ -1,4 +1,13 @@
-<div id="page-header">PDS Advocacy Unit</div>
+<?php
+/**
+ * Template name: Advocates Home
+ */
+the_post();
+
+?>
+<div id="page-header">
+  <h1>PDS Advocacy Unit</h1>
+</div>
 
 <div class="page-header">
     <h1>Advocates Home</h1>
@@ -53,22 +62,18 @@
         ?>
     </div>
 </div>
-<div id="advocates-about" class="col-md-8">
-    <h2>PDS Advocacy Unit</h2>
-    <p>The Public Defender Service Advocacy Unit is a full service independent team of advocates.</p>
-    <p>We have a team of 25 barristers and higher courts advocates including seven Queens Counsel with experience at every level of the criminal justice system. We provide independent, high quality, professional advice and representation to accused persons throughout England and Wales.</p>
-    <p>Amongst our team, we have advocates who specialise in murder, fraud, historic and serious sexual offences, terrorism and Very High Cost Criminal Cases.</p>
-    <p>We can be instructed to carry out work by any solicitors looking for representation for their clients in the Higher Courts of England and Wales. We are able to operate nationally.</p>
-    <p>To find out more about our advocates, please visit <a href="<?php echo site_url('advocates/our-advocates/') ?>">Our Advocates</a> page.</p>
-    <p>To contact us or speak to our clerk, please visit the <a href="<?php echo site_url('advocates/contact-us/') ?>">Contact Us</a> page.</p>
+
+<div class="row" style="margin-top: 1em;">
+  <div class="col-md-8">
+    <?php the_content(); ?>
+  </div>
+  <aside class="col-md-4">
+    <?php
+
+    $news_category_slug = get_post_meta($post->ID, 'news-category', true);
+    $news_category = get_term_by('slug', $news_category_slug, 'category');
+    template_part('templates/news-feed', compact('news_category'));
+
+    ?>
+  </aside>
 </div>
-
-<aside class="col-md-4">
-  <?php
-
-  $news_category_slug = get_post_meta($post->ID, 'news-category', true);
-  $news_category = get_term_by('slug', $news_category_slug, 'category');
-  template_part('templates/news-feed', compact('news_category'));
-
-  ?>
-</aside>

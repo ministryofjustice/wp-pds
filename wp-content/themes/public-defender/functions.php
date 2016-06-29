@@ -30,7 +30,6 @@ $roots_includes = array(
 
     // Custom post types
     'lib/cpt/advocate.php', // Advocate
-    'lib/cpt/location.php', // Location
 );
 
 foreach ($roots_includes as $file) {

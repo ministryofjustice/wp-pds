@@ -21,11 +21,11 @@ function roots_setup() {
     // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
     // http://codex.wordpress.org/Function_Reference/add_image_size
     add_theme_support('post-thumbnails');
-    // Set image size
+
+    // Add custom image sizes
     add_image_size('advocate_slide', 242, 190, true);
     add_image_size('advocate_slide_thumb', 160, 190, true);
     add_image_size('deep_link', 600, 400, true);
-//    set_post_thumbnail_size(150, 150);
 
     // Add HTML5 markup for captions
     // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5

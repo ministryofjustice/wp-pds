@@ -1,0 +1,83 @@
+// Home page
+
+#home-main {
+  margin: 0;
+  p {
+    font-size: 18px;
+  }
+  #welcome {
+    border-bottom: 1px solid #A5ACC1;
+    background: url('../img/Welcome_background_1170x340.jpg') no-repeat center center;
+    height: 340px;
+    color: #6C6C6C;
+    font-weight: 300;
+    margin: 0 -40px;
+    h1 {
+      font-family: @ubuntu;
+      font-weight: 700;
+      font-size: 32px;
+      color: #364773;
+      padding: 0 40px;
+      border: none;
+    }
+    div p {
+      padding: 0 25px 10px;
+      line-height: 22px;
+    }
+  }
+  #home-ctas {
+    padding-left: 40px;
+    padding-right: 40px;
+    a.home-cta {
+      margin-top: 60px;
+      margin-bottom: 40px;
+      background-repeat: no-repeat;
+      background-position: 0% 50%;
+      background-size: 100% auto;
+      line-height: 36px;
+      font-family: @ubuntu;
+      font-weight: 700;
+      font-size: 36px;
+      color: #fff;
+      height: 360px;
+      width: 50%;
+      display: table;
+      position: static;
+      text-align: center;
+      padding: 10px;
+      float: left;
+      &.home-solicitors {
+        background-image: url('../img/PDS Buttons_505x248.1.jpg');
+        border-right: 5px solid transparent;
+      }
+      &.home-advocacy {
+        background-image: url('../img/PDS Buttons_505x248.2.jpg');
+        border-left: 5px solid transparent;
+      }
+      .middle {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        position: static;
+        .inner {
+          position: static;
+          font-weight: bold;
+          padding: 20% 5px;
+        }
+      }
+      &:hover {
+        text-decoration: none;
+        .inner {
+          background-color: rgba(255, 255, 255, 0.75);
+        }
+        &.home-solicitors {
+          color: #142452;
+        }
+        &.home-advocacy {
+          color: #f0b432;
+        }
+
+      }
+    }
+  }
+}

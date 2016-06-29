@@ -1,20 +1,3 @@
-// Fonts - social icons
-
-@font-face {
-  font-family: 'socicon';
-  src: url('../fonts/socicon-webfont.eot');
-  src: url('../fonts/socicon-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/socicon-webfont.woff') format('woff'),
-  url('../fonts/socicon-webfont.ttf') format('truetype'),
-  url('../fonts/socicon-webfont.svg#sociconregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-.socicon {
-  font-family: 'socicon' !important;
-}
-
 // General
 
 .main {
@@ -26,15 +9,14 @@
 }
 
 h1 {
-  font-family: Ubuntu;
+  font-family: @ubuntu;
   font-weight: 700;
   color: #142452;
   font-size: 36px;
-  /*padding: 0 40px;*/
 }
 
 h2 {
-  font-family: Ubuntu;
+  font-family: @ubuntu;
   font-weight: 700;
   color: #142452;
   font-size: 26px;
@@ -51,7 +33,7 @@ h2 {
 // Header
 
 body {
-  font-family: Roboto;
+  font-family: @roboto;
   font-weight: 300;
 }
 
@@ -157,148 +139,16 @@ footer.content-info {
   }
 }
 
-// Home page
-
-#home-main {
-  margin: 0;
-  p {
-    font-size: 18px;
-  }
-  #welcome {
-    border-bottom: 1px solid #A5ACC1;
-    background: url('../img/Welcome_background_1170x340.jpg') no-repeat center center;
-    height: 340px;
-    color: #6C6C6C;
-    font-weight: 300;
-    margin: 0 -40px;
-    h1 {
-      font-family: 'Ubuntu';
-      font-weight: 700;
-      font-size: 32px;
-      color: #364773;
-      padding: 0 40px;
-      border: none;
-    }
-    div p {
-      padding: 0 25px 10px;
-      line-height: 22px;
-    }
-  }
-  #home-ctas {
-    padding-left: 40px;
-    padding-right: 40px;
-    a.home-cta {
-      margin-top: 60px;
-      margin-bottom: 40px;
-      background-repeat: no-repeat;
-      background-position: 0% 50%;
-      background-size: 100% auto;
-      line-height: 36px;
-      font-family: 'Ubuntu';
-      font-weight: 700;
-      font-size: 36px;
-      color: #fff;
-      height: 360px;
-      width: 50%;
-      display: table;
-      position: static;
-      text-align: center;
-      padding: 10px;
-      float: left;
-      &.home-solicitors {
-        background-image: url('../img/PDS Buttons_505x248.1.jpg');
-        border-right: 5px solid transparent;
-      }
-      &.home-advocacy {
-        background-image: url('../img/PDS Buttons_505x248.2.jpg');
-        border-left: 5px solid transparent;
-      }
-      .middle {
-        display: table-cell;
-        vertical-align: middle;
-        width: 100%;
-        position: static;
-        .inner {
-          position: static;
-          font-weight: bold;
-          padding: 20% 5px;
-        }
-      }
-      &:hover {
-        text-decoration: none;
-        .inner {
-          background-color: rgba(255, 255, 255, 0.75);
-        }
-        &.home-solicitors {
-          color: #142452;
-        }
-        &.home-advocacy {
-          color: #f0b432;
-        }
-
-      }
-    }
-  }
-}
-
 // Page headers
 .advocate-pages {
-
   .advocate-phone {
     display: block;
-  }
-  &.advocates {
-    #page-header {
-      background: url('../img/Extra_banner_1170x200.2.jpg') no-repeat top center;
-    }
-  }
-  &.about-us {
-    #page-header {
-      background: url('../img/Solicitors-Home_banner_1170x200.2.jpg') no-repeat top center;
-    }
-  }
-  &.our-advocates {
-    #page-header {
-      background: url('../img/Our-Locations-banner_1170x200.2.jpg') no-repeat top center;
-    }
-  }
-  &.contact-us {
-    #page-header {
-      background: url('../img/Contact_Us_banner_1170x200.2.jpg') no-repeat top center;
-    }
-  }
-}
-
-.solicitors-pages {
-  &.solicitors {
-    #page-header {
-      background: url('../img/Solicitors-Home_banner_1170x200.1.jpg') no-repeat top center;
-    }
-  }
-  &.about-us {
-    #page-header {
-      background: url('../img/Extra_banner_1170x200.1.jpg') no-repeat top center;
-    }
-  }
-  &.our-lawyers {
-    #page-header {
-      background: url('../img/Our_Locations_banner_1170x200.1.jpg') no-repeat top center;
-    }
-  }
-  &.our-locations {
-    #page-header {
-      background: url('../img/Contact_Us_banner_1170x200.1.jpg') no-repeat top center;
-    }
   }
 }
 
 // Common page elements
 .page-header {
   border-bottom: none;
-}
-
-#page-header {
-  background-size: 100% 100%;
 }
 
 .advocate-pages {
@@ -318,27 +168,6 @@ footer.content-info {
   }
   h2 {
     color: #f0b432;
-  }
-}
-
-#page-header {
-  height: 200px;
-  line-height: 200px;
-  font-family: Ubuntu;
-  font-size: 96px;
-  color: white;
-  margin: 0 -40px 20px;
-  font-weight: 300;
-  padding: 0 40px;
-
-  h1 {
-    line-height: inherit;
-    font-size: inherit;
-    color: inherit;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    font-weight: inherit;
   }
 }
 
@@ -371,57 +200,6 @@ footer.content-info {
       color: white;
       padding: 5px;
     }
-  }
-}
-
-#advocates-about {
-  margin-left: -15px;
-}
-
-#advocates-news {
-  background: #DFDFDF;
-  margin-top: 20px;
-  padding-right: 40px;
-  margin-left: 15px;
-  time {
-    font-weight: bold;
-  }
-}
-
-// Our Advocates page
-
-#advocates-container {
-  font-size: 14px;
-  article.advocate-bio {
-    height: 425px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #f0b432;
-    .advocate-picture {
-      width: 100%;
-      height: auto;
-    }
-    .advocate-name {
-      font-weight: bold;
-      font-size: 1.15em;
-      font-family: Ubuntu;
-      padding: 10px 0 5px;
-    }
-  }
-  #head-advocates {
-    article.advocate-bio {
-      height: 245px;
-      .advocate-name {
-        margin-top: 30px;
-        font-size: 1.3em;
-      }
-    }
-  }
-  a {
-    font-weight: 300;
-    padding: 5px 0;
-    margin: 5px 0;
-    display: block;
   }
 }
 

@@ -1,5 +1,7 @@
 <?php
 
+require 'classes/moj-user-roles.php';
+
 /**
  * Roots initial setup and constants
  */
@@ -36,3 +38,8 @@ function roots_setup() {
 }
 
 add_action('after_setup_theme', 'roots_setup');
+
+/**
+ * Define MOJ user roles
+ */
+new \MOJ_User_Roles();

@@ -6,7 +6,6 @@
 function roots_excerpt_more($more) {
     return '&hellip; <a href="' . get_permalink() . '" title="Read the rest of this article" class="excerpt-permalink">' . __('Read more', 'roots') . '</a>';
 }
-
 add_filter('excerpt_more', 'roots_excerpt_more');
 
 /**
@@ -25,6 +24,13 @@ function roots_excerpt_length($length) {
 }
 add_filter('excerpt_length', 'roots_excerpt_length');
 
+/**
+ * Unregister core 'Post Tag' taxonomy.
+ */
+function roots_unregister_tag_taxonomy() {
+  register_taxonomy('post_tag', array());
+}
+add_action('init', 'roots_unregister_tag_taxonomy');
 
 /**
  * Manage output of wp_title()
@@ -38,7 +44,6 @@ function roots_wp_title($title) {
 
     return $title;
 }
-
 add_filter('wp_title', 'roots_wp_title', 10);
 
 // Is page or child of page

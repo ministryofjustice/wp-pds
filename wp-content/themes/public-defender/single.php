@@ -1,4 +1,8 @@
-<?php get_template_part('templates/site-section'); ?>
-<?php get_template_part('templates/breadcrumbs'); ?>
+<?php the_post(); ?>
+<?php get_template_part('templates/page-header'); ?>
 
-<?php get_template_part('templates/content', 'single'); ?>
+<?php get_template_part('templates/entry-meta'); ?>
+
+<div class="entry-content">
+  <?php the_content(); ?>
+</div>

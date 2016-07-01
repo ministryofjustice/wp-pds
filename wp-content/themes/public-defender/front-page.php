@@ -1,36 +1,28 @@
+<?php the_post(); ?>
 <section id="home-main">
     <div id="welcome" class="row">
         <h1 class='col-md-12'>Welcome to the PDS</h1>
         <div class='col-lg-6 col-md-7 col-sm-8 col-xs-12'>
-            <?php the_post(); the_content(); ?>
+            <?php the_content(); ?>
         </div>
     </div>
-    <div id="home-ctas" style="display: none;">
-        <a href="<?php echo site_url('solicitors'); ?>" class="home-cta home-solicitors">
-            <div class="middle">
-                <div class="inner">
-                    PDS Solicitors
-                </div>
-            </div>
-        </a>
-        <a href="<?php echo site_url('advocates'); ?>" class="home-cta home-advocacy">
-            <div class="middle">
-                <div class="inner">
-                    PDS Advocacy Unit
-                </div>
-            </div>
-        </a>
-    </div>
+    <?php
+
+    $solicitors_page = get_page_by_template('template-solicitors-home.php');
+    $advocates_page = get_page_by_template('template-advocates-home.php');
+
+    ?>
     <div class="row">
-        <a href="#" class="home-cta-link col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
-            <div class="home-cta home-cta--solicitors">
-                PDS Solicitors
-            </div>
-        </a>
-        <a href="#" class="home-cta-link col-md-5 col-sm-6 col-xs-12">
-            <div class="home-cta home-cta--advocates">
-                PDS Advocacy Unit
-            </div>
-        </a>
+        <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-12">
+            <a href="<?php the_permalink($solicitors_page); ?>" class="site-section-cta site-section-cta--solicitors">
+                <div>PDS Solicitors</div>
+            </a>
+        </div>
+
+        <div class="col-md-5 col-sm-6 col-xs-12">
+            <a href="<?php the_permalink($advocates_page); ?>" class="site-section-cta site-section-cta--advocates">
+                <div>PDS Advocacy Unit</div>
+            </a>
+        </div>
     </div>
 </section>

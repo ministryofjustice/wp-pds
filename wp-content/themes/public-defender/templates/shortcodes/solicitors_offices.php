@@ -9,13 +9,7 @@
 
 <?php
 
-$offices_page = new WP_Query(array(
-  'post_type' => 'page',
-  'post_status' => 'publish',
-  'meta_key' => '_wp_page_template',
-  'meta_value' => 'template-our-offices-page.php',
-));
-$offices_page = $offices_page->post;
+$offices_page = get_page_by_template('template-our-offices-page.php');
 
 $args = array(
   'post_type' => 'page',

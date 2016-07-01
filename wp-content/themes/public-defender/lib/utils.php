@@ -67,3 +67,36 @@ function template_part($template, $vars = array()) {
     return new WP_Error("Unable to locate template '{$template}'");
   }
 }
+
+/**
+ * Get all pages using the specified page template.
+ *
+ * @param string $template Name of the page template.
+ * @param int $limit Number of pages to return. Default unlimited.
+ * @return WP_Post[]
+ */
+function get_pages_by_template($template, $limit = -1) {
+    $args = array(
+        'post_type' => 'page',
+        'post_status' => 'publish',
+        'posts_per_page' => $limit,
+        'meta_key' => '_wp_page_template',
+        'meta_value' => $template,
+    );
+
+    $query = new WP_Query($args);
+
+    return $query->posts;
+}
+
+/**
+ * Get one page using the specified page template.
+ * Use this to get only one WP_Post object.
+ *
+ * @param string $template Name of the page template.
+ * @return WP_Post
+ */
+function get_page_by_template($template) {
+    $pages = get_pages_by_template($template, 1);
+    return array_shift($pages);
+}

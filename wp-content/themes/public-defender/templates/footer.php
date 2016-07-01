@@ -19,7 +19,6 @@
     $solicitors_contact = wpautop($solicitors_query->posts[0]->post_content);
 
     ?>
-    <section id="footer-newsletter" class="container"></section>
     <section id="footer-contact" class="container">
       <div class="row">
         <div class="col-md-8">

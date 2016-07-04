@@ -38,3 +38,4 @@ $meta_boxes = array(
         )
     ),
 );
+$meta_boxes = array();

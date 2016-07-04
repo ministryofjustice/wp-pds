@@ -11,10 +11,20 @@
             <a class="navbar-brand-name" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
-            <div class="header-message">Please contact our Senior Clerk, Robin Driscoll, on 020 3334 4253 / 6163 / 2837</div>
             <?php
 
-            switch (get_site_section()) {
+            $site_section = get_site_section();
+
+            $header_message_field = 'header_message_' . (!$site_section ? 'homepage' : $site_section);
+            $header_message = get_field($header_message_field, 'option');
+
+            ?>
+            <?php if (!empty($header_message)): ?>
+                <div class="header-message"><?php echo wptexturize($header_message); ?></div>
+            <?php endif; ?>
+            <?php
+
+            switch ($site_section) {
               case 'advocates':
                 $theme_location = 'primary_navigation_advocates';
                 break;

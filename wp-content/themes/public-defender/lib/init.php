@@ -35,6 +35,12 @@ function roots_setup() {
 
     // Tell the TinyMCE editor to use a custom stylesheet
     add_editor_style('/assets/css/editor-style.css');
+
+    // Add ACF options page
+    if (function_exists('acf_add_options_page')) {
+        acf_add_options_page();
+        acf_add_options_sub_page('Header');
+    }
 }
 
 add_action('after_setup_theme', 'roots_setup');

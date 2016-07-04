@@ -55,10 +55,6 @@ function roots_scripts() {
         wp_enqueue_script('comment-reply');
     }
 
-    if (is_page('advocates')) {
-        wp_enqueue_script('advocate-banner', get_template_directory_uri() . '/assets/js/advocate-banner.js', array('jquery'), null, true);
-    }
-
     wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, false);
     wp_enqueue_script('jquery');
     wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);

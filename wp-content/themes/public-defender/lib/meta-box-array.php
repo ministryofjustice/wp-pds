@@ -34,12 +34,6 @@ $meta_boxes = array(
                 'id' => 'advocate-cv',
                 'label' => 'Advocate CV',
                 'type' => 'upload'
-            ),
-            array(
-                'id' => 'advocate-show',
-                'label' => 'Show advocate on banner',
-                'desc'=> 'By selecting this box you are choosing to show this advocate on the Advocate Homepage banner',
-                'type' => 'on-off'
             )
         )
     ),

@@ -108,21 +108,21 @@ function orderbyreplace($orderby) {
  * @return string|false
  */
 function get_site_section() {
-  $breadcrumbs = new Roots_Breadcrumbs();
-  $trail = $breadcrumbs->get_trail();
+    $breadcrumbs = new Roots_Breadcrumbs();
+    $trail = $breadcrumbs->get_trail();
 
-  if (count($trail) < 2 || get_class($trail[1]) !== 'WP_Post') {
-    return false;
-  }
+    if (count($trail) < 2 || get_class($trail[1]) !== 'WP_Post') {
+        return false;
+    }
 
-  $page = $trail[1];
-  if ($page->post_name == 'advocates') {
-    return 'advocates';
-  }
-  else if ($page->post_name == 'solicitors') {
-    return 'solicitors';
-  }
-  else {
-    return false;
-  }
+    $page = $trail[1];
+    if ($page->post_name == 'advocates') {
+        return 'advocates';
+    }
+    else if ($page->post_name == 'solicitors') {
+        return 'solicitors';
+    }
+    else {
+        return false;
+    }
 }

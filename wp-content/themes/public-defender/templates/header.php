@@ -1,4 +1,4 @@
-<header class="banner navbar navbar-default navbar-static-top" role="banner">
+<header class="site-header navbar navbar-default navbar-static-top" role="banner">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -11,7 +11,7 @@
             <a class="navbar-brand-name" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
-            <div class="advocate-phone">Please contact our Senior Clerk, Robin Driscoll, on 020 3334 4253 / 6163 / 2837</div>
+            <div class="header-message">Please contact our Senior Clerk, Robin Driscoll, on 020 3334 4253 / 6163 / 2837</div>
             <?php
 
             switch (get_site_section()) {

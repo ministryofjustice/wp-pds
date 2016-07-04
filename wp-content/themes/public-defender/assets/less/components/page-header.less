@@ -1,13 +1,26 @@
 #page-header {
-  height: 200px;
-  line-height: 200px;
   font-family: @ubuntu;
-  font-size: 96px;
   color: white;
   margin: 0 -40px 20px;
   font-weight: 300;
-  padding: 0 40px;
   background-size: 100% 100%;
+  background-position: center center;
+
+  height: 140px;
+  line-height: 140px;
+  font-size: 36px;
+  padding: 0 25px;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: 76px;
+    padding: 0 40px;
+    line-height: 200px;
+    height: 200px;
+  }
+
+  @media (min-width: @screen-md-min) {
+    font-size: 96px;
+  }
 
   h1 {
     line-height: inherit;

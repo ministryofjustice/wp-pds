@@ -73,11 +73,14 @@ the_post();
         $qc_advocates_args = array(
             'posts_per_page' => - 1,
             'post_type'      => 'advocate',
-            'orderby'        => 'menu_order',
-            'order'          => 'ASC',
+            'orderby' => array(
+                'advocate-call' => 'ASC',
+                'advocate-surname' => 'ASC',
+            ),
             'meta_query'     => array(
                 array(
                     'key'     => 'advocate-call',
+                    'type'    => 'NUMERIC',
                     'value'   => '',
                     'compare' => 'LIKE'
                 ),
@@ -102,9 +105,7 @@ the_post();
             )
         );
 
-        add_filter('posts_orderby', 'orderbyreplace');
         $qc_advocates = new WP_Query($qc_advocates_args);
-        remove_filter('posts_orderby', 'orderbyreplace');
 
         $i = 1;
         while ($qc_advocates->have_posts()) {
@@ -167,11 +168,14 @@ the_post();
         $non_qc_advocates_args = array(
             'posts_per_page' => - 1,
             'post_type'      => 'advocate',
-            'orderby'        => 'menu_order',
-            'order'          => 'ASC',
+            'orderby' => array(
+                'advocate-call' => 'ASC',
+                'advocate-surname' => 'ASC',
+            ),
             'meta_query'     => array(
                 array(
                     'key'     => 'advocate-call',
+                    'type'    => 'NUMERIC',
                     'value'   => '',
                     'compare' => 'LIKE'
                 ),
@@ -193,9 +197,7 @@ the_post();
             )
         );
 
-        add_filter('posts_orderby', 'orderbyreplace');
         $non_qc_advocates = new WP_Query($non_qc_advocates_args);
-        remove_filter('posts_orderby', 'orderbyreplace');
 
         $i = 1;
         while ($non_qc_advocates->have_posts()) {

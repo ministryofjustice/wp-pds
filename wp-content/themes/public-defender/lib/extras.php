@@ -64,11 +64,6 @@ function is_tree($pid) {
     }
 }
 
-// Replaces menu_order with two meta_value for sorting by multiple custom fields
-function orderbyreplace($orderby) {
-    return str_replace('wp_posts.menu_order', 'wp_postmeta.meta_value, mt1.meta_value', $orderby);
-}
-
 /**
  * Get the 'site section' for the current page.
  * Returns either 'advocates' or 'solicitors',

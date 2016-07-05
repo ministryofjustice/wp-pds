@@ -72,3 +72,92 @@ function get_site_section() {
         return false;
     }
 }
+
+/**
+ * Retrieve advocates by their type for use on the 'Our Advocates' page template.
+ *
+ * @param array $types
+ * @param array $exclude_types
+ *
+ * @return array
+ */
+function get_our_advocates_by_type($types, $exclude_types = array()) {
+    $args = array(
+        'posts_per_page'  => - 1,
+        'post_type'       => 'advocate',
+        'orderby' => array(
+            'advocate-call' => 'ASC',
+            'advocate-surname' => 'ASC',
+        ),
+        'meta_query'      => array(
+            array(
+                'key'     => 'advocate-call',
+                'type'    => 'NUMERIC',
+                'value'   => '',
+                'compare' => 'LIKE'
+            ),
+            array(
+                'key'     => 'advocate-surname',
+                'value'   => '',
+                'compare' => 'LIKE'
+            )
+        ),
+        'tax_query'       => array()
+    );
+
+    $args['tax_query'][] = array(
+        'taxonomy' => 'advocate-type',
+        'field'    => 'slug',
+        'terms'    => $types,
+    );
+
+    if (!empty($exclude_types)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'advocate-type',
+            'field'    => 'slug',
+            'operator' => 'NOT IN',
+            'terms'    => $exclude_types,
+        );
+    }
+
+    $advocate_posts = new WP_Query($args);
+    $advocates = array();
+
+    while ($advocate_posts->have_posts()) {
+        $advocate_posts->the_post();
+
+        // Hide advocates that have no photo
+        if (!has_post_thumbnail()) {
+            continue;
+        }
+
+        $name = get_the_title();
+
+        $image_id = get_post_thumbnail_id();
+        $image    = acf_get_attachment($image_id);
+
+        $cv = get_field('advocate-cv');
+        if ($cv) {
+            $profile_link = $cv['url'];
+        } else {
+            $profile_link = false;
+        }
+
+        $summary = get_field('advocate-brief');
+        if (empty($summary)) {
+            $summary = false;
+        }
+
+        $advocates[] = array(
+            'name' => $name,
+            'image' => $image,
+            'profile_link' => $profile_link,
+            'summary' => $summary,
+            'post' => get_post(),
+        );
+    }
+
+    wp_reset_postdata();
+
+    return $advocates;
+}

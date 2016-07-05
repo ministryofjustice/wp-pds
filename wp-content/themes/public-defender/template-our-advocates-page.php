@@ -15,52 +15,20 @@ the_post();
     <div class="row">
         <?php
 
-        $qc_advocates_args = array(
-            'posts_per_page' => - 1,
-            'post_type'      => 'advocate',
-            'tax_query'      => array(
-                array(
-                    'taxonomy' => 'advocate-type',
-                    'field'    => 'slug',
-                    'terms'    => 'head-of-advocacy'
-                )
-            )
-        );
+        $advocates = get_our_advocates_by_type(array('head-of-advocacy'));
 
-        $qc_advocates = new WP_Query($qc_advocates_args);
-
-        while ($qc_advocates->have_posts()):
-            $qc_advocates->the_post();
+        foreach ($advocates as $advocate):
             ?>
             <div class="col-md-8">
                 <div class="row">
                     <?php
 
-                    $name = get_the_title();
-
-                    $image_id = get_post_thumbnail_id();
-                    $image    = acf_get_attachment($image_id);
-
-                    $cv = get_field('advocate-cv');
-                    if ($cv) {
-                        $profile_link = $cv['url'];
-                    } else {
-                        $profile_link = false;
-                    }
-
-                    $summary = get_field('advocate-brief');
-                    if (empty($summary)) {
-                        $summary = false;
-                    }
-
-                    $vars = compact('name', 'image', 'profile_link', 'summary');
-
-                    template_part('templates/person/person-wide', $vars);
+                    template_part('templates/person/person-wide', $advocate);
 
                     ?>
                 </div>
             </div>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
     </div>
 </section>
 
@@ -70,76 +38,16 @@ the_post();
     <div class="row">
         <?php
 
-        $qc_advocates_args = array(
-            'posts_per_page' => - 1,
-            'post_type'      => 'advocate',
-            'orderby' => array(
-                'advocate-call' => 'ASC',
-                'advocate-surname' => 'ASC',
-            ),
-            'meta_query'     => array(
-                array(
-                    'key'     => 'advocate-call',
-                    'type'    => 'NUMERIC',
-                    'value'   => '',
-                    'compare' => 'LIKE'
-                ),
-                array(
-                    'key'     => 'advocate-surname',
-                    'value'   => '',
-                    'compare' => 'LIKE'
-                )
-            ),
-            'tax_query'      => array(
-                array(
-                    'taxonomy' => 'advocate-type',
-                    'field'    => 'slug',
-                    'terms'    => 'qc'
-                ),
-                array(
-                    'taxonomy' => 'advocate-type',
-                    'field'    => 'slug',
-                    'operator' => 'NOT IN',
-                    'terms'    => 'head-of-advocacy',
-                )
-            )
-        );
-
-        $qc_advocates = new WP_Query($qc_advocates_args);
+        $advocates = get_our_advocates_by_type(array('qc'), array('head-of-advocacy'));
 
         $i = 1;
-        while ($qc_advocates->have_posts()) {
-            $qc_advocates->the_post();
-
-            // Hide advocates that have no photo
-            if ( ! has_post_thumbnail()) {
-                continue;
-            }
-
-            $name = get_the_title();
-
-            $image_id = get_post_thumbnail_id();
-            $image    = acf_get_attachment($image_id);
-
-            $cv = get_field('advocate-cv');
-            if ($cv) {
-                $profile_link = $cv['url'];
-            } else {
-                $profile_link = false;
-            }
-
-            $summary = get_field('advocate-brief');
-            if (empty($summary)) {
-                $summary = false;
-            }
-
+        foreach ($advocates as $advocate) {
             $col_width = array(
                 'md' => 2,
                 'sm' => 3,
             );
 
-            $vars = compact('name', 'image', 'profile_link', 'summary', 'col_width');
-
+            $vars = array_merge($advocate, compact('col_width'));
             template_part('templates/person/person-small', $vars);
 
             if ($i % 6 === 0) {
@@ -199,39 +107,20 @@ the_post();
 
         $non_qc_advocates = new WP_Query($non_qc_advocates_args);
 
+        $types = array(
+            'senior-higher-courts-advocates',
+            'junior-higher-courts-advocates',
+        );
+        $advocates = get_our_advocates_by_type($types);
+
         $i = 1;
-        while ($non_qc_advocates->have_posts()) {
-            $non_qc_advocates->the_post();
-
-            // Hide advocates that have no photo
-            if ( ! has_post_thumbnail()) {
-                continue;
-            }
-
-            $name = get_the_title();
-
-            $image_id = get_post_thumbnail_id();
-            $image    = acf_get_attachment($image_id);
-
-            $cv = get_field('advocate-cv');
-            if ($cv) {
-                $profile_link = $cv['url'];
-            } else {
-                $profile_link = false;
-            }
-
-            $summary = get_field('advocate-brief');
-            if (empty($summary)) {
-                $summary = false;
-            }
-
+        foreach ($advocates as $advocate) {
             $col_width = array(
                 'md' => 2,
                 'sm' => 3,
             );
 
-            $vars = compact('name', 'image', 'profile_link', 'summary', 'col_width');
-
+            $vars = array_merge($advocate, compact('col_width'));
             template_part('templates/person/person-small', $vars);
 
             if ($i % 6 === 0) {

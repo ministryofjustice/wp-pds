@@ -46,24 +46,6 @@ function roots_wp_title($title) {
 }
 add_filter('wp_title', 'roots_wp_title', 10);
 
-// Is page or child of page
-function is_tree($pid) {
-    global $post;
-
-    if ($post) {
-        $ancestors = get_post_ancestors($post->$pid);
-        $root = count($ancestors) - 1;
-
-        if (is_page() && (is_page($pid) || $post->post_parent == $pid || in_array($pid, $ancestors))) {
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
-}
-
 /**
  * Get the 'site section' for the current page.
  * Returns either 'advocates' or 'solicitors',

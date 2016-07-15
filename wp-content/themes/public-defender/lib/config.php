@@ -9,11 +9,6 @@ add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails com
 add_theme_support('jquery-cdn');            // Enable to load jQuery from the Google CDN
 
 /**
- * Configuration values
- */
-define('GOOGLE_ANALYTICS_ID', 'UA-54092269-1'); // UA-XXXXX-Y (Note: Universal Analytics only, not Classic Analytics)
-
-/**
  * .main classes
  */
 function roots_main_class() {

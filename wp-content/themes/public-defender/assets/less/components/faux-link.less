@@ -1,0 +1,21 @@
+/**
+ * Faux-link component
+ *
+ * Faux links are useful for displaying some text as if it were a link
+ * when it exists inside a larger block-level anchor.
+ */
+
+a .faux-link {
+  color: @link-color;
+  text-decoration: none;
+}
+
+a:hover .faux-link,
+a:focus .faux-link {
+  color: @link-hover-color;
+  text-decoration: underline;
+}
+
+a:focus .faux-link {
+  .tab-focus();
+}

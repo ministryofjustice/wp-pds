@@ -23,12 +23,12 @@ $roots_includes = array(
     'lib/comments.php', // Custom comments modifications
     'lib/scripts.php', // Scripts and stylesheets
     'lib/extras.php', // Custom functions
-    'lib/meta-box-array.php', // Meta boxes
     'lib/ajax.php', // AJAX boxes
-     
+    'lib/breadcrumbs.php', // Breadcrumbs
+    'lib/shortcodes.php', // Custom shortcodes
+
     // Custom post types
     'lib/cpt/advocate.php', // Advocate
-    'lib/cpt/location.php', // Location
 );
 
 foreach ($roots_includes as $file) {

@@ -6,18 +6,7 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var jsFileList = [
-    'assets/vendor/bootstrap/js/transition.js',
-    'assets/vendor/bootstrap/js/alert.js',
-    'assets/vendor/bootstrap/js/button.js',
-    'assets/vendor/bootstrap/js/carousel.js',
-    'assets/vendor/bootstrap/js/collapse.js',
     'assets/vendor/bootstrap/js/dropdown.js',
-    'assets/vendor/bootstrap/js/modal.js',
-    'assets/vendor/bootstrap/js/tooltip.js',
-    'assets/vendor/bootstrap/js/popover.js',
-    'assets/vendor/bootstrap/js/scrollspy.js',
-    'assets/vendor/bootstrap/js/tab.js',
-    'assets/vendor/bootstrap/js/affix.js',
     'assets/js/plugins/*.js',
     'assets/js/_*.js'
   ];
@@ -93,20 +82,6 @@ module.exports = function(grunt) {
         src: 'assets/css/main.min.css'
       }
     },
-    modernizr: {
-      build: {
-        devFile: 'assets/vendor/modernizr/modernizr.js',
-        outputFile: 'assets/js/vendor/modernizr.min.js',
-        files: {
-          'src': [
-            ['assets/js/scripts.min.js'],
-            ['assets/css/main.min.css']
-          ]
-        },
-        uglify: true,
-        parseFiles: true
-      }
-    },
     version: {
       default: {
         options: {
@@ -169,7 +144,6 @@ module.exports = function(grunt) {
     'less:build',
     'autoprefixer:build',
     'uglify',
-    'modernizr',
     'version'
   ]);
 };

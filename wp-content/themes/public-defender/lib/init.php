@@ -1,5 +1,7 @@
 <?php
 
+require 'classes/moj-user-roles.php';
+
 /**
  * Roots initial setup and constants
  */
@@ -14,7 +16,6 @@ function roots_setup() {
         'primary_navigation_advocates' => __('Primary Navigation - Advocates', 'roots'),
         'primary_navigation_solicitors' => __('Primary Navigation - Solicitors', 'roots'),
         'primary_navigation_home' => __('Primary Navigation - Home', 'roots'),
-        'footer_navigation' => __('Footer Navigation', 'roots')
     ));
 
     // Add post thumbnails
@@ -23,9 +24,10 @@ function roots_setup() {
     // http://codex.wordpress.org/Function_Reference/add_image_size
     add_theme_support('post-thumbnails');
 
-    // Add post formats
-    // http://codex.wordpress.org/Post_Formats
-    add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio'));
+    // Add custom image sizes
+    add_image_size('advocate_slide', 242, 190, true);
+    add_image_size('advocate_slide_thumb', 160, 190, true);
+    add_image_size('deep_link', 600, 400, true);
 
     // Add HTML5 markup for captions
     // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5
@@ -33,31 +35,17 @@ function roots_setup() {
 
     // Tell the TinyMCE editor to use a custom stylesheet
     add_editor_style('/assets/css/editor-style.css');
+
+    // Add ACF options page
+    if (function_exists('acf_add_options_page')) {
+        acf_add_options_page();
+        acf_add_options_sub_page('Header');
+    }
 }
 
 add_action('after_setup_theme', 'roots_setup');
 
 /**
- * Register sidebars
+ * Define MOJ user roles
  */
-function roots_widgets_init() {
-    register_sidebar(array(
-        'name' => __('Primary', 'roots'),
-        'id' => 'sidebar-primary',
-        'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    ));
-
-    register_sidebar(array(
-        'name' => __('Footer', 'roots'),
-        'id' => 'sidebar-footer',
-        'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    ));
-}
-
-add_action('widgets_init', 'roots_widgets_init');
+new \MOJ_User_Roles();

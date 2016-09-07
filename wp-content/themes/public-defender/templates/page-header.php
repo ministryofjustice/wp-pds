@@ -1,4 +1,6 @@
-<?php if(!is_home): ?><div id="page-header"></div><?php endif; ?>
+<?php get_template_part('templates/site-section'); ?>
+<?php get_template_part('templates/breadcrumbs'); ?>
+
 <div class="page-header">
     <h1>
         <?php echo roots_title(); ?>

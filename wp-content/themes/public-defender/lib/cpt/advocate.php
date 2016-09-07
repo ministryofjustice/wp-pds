@@ -107,3 +107,17 @@ function advocate_image_box() {
 }
 
 add_action('do_meta_boxes', 'advocate_image_box');
+
+function advocate_admin_order_by_surname( $query ){
+    if (is_admin() && $query->get('post_type') == 'advocate') {
+        if ($query->get('orderby') == '') {
+            $query->set('orderby', 'advocate-surname');
+            $query->set('meta_key', 'advocate-surname');
+        }
+
+        if ($query->get('order') == '') {
+            $query->set('order', 'ASC');
+        }
+    }
+}
+add_action('pre_get_posts', 'advocate_admin_order_by_surname');

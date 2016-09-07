@@ -1,510 +1,112 @@
-// Fonts - social icons
-
-@font-face {
-    font-family: 'socicon';
-    src: url('../fonts/socicon-webfont.eot');
-    src: url('../fonts/socicon-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/socicon-webfont.woff') format('woff'),
-        url('../fonts/socicon-webfont.ttf') format('truetype'),
-        url('../fonts/socicon-webfont.svg#sociconregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-.socicon {
-    font-family: 'socicon' !important;
-}
-
 // General
 
-main {
-    margin: 0 40px;
-    font-size: 17px;
-    h1 {
-        padding-bottom: 10px;
-    }
+.main {
+  margin: 0 40px;
+  font-size: 17px;
+  h1 {
+    padding-bottom: 10px;
+  }
 }
 
 h1 {
-    font-family: Ubuntu;
-    font-weight: 700;
-    color: #142452;
-    font-size: 36px;
-    /*padding: 0 40px;*/
+  font-family: @ubuntu;
+  font-weight: 700;
+  color: #142452;
+  font-size: 36px;
 }
 
 h2 {
-    font-family: Ubuntu;
-    font-weight: 700;
-    color: #142452;
-    font-size: 26px;
+  font-family: @ubuntu;
+  font-weight: 700;
+  color: #142452;
+  font-size: 26px;
 }
 
 .strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .pad-bot-20 {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 // Header
 
 body {
-    font-family: Roboto;
-    font-weight: 300;
-}
-
-.advocate-phone {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 20px;
-    font-weight: 600;
-    color: black;
-}
-
-.navbar-default  {
-    height: 140px;
-    background-color: #fff;
-    margin:0;
-    border: none;
-    .container {
-        border-bottom: 1px solid #A5ACC1;
-    }
-    .navbar-header {
-        .navbar-brand {
-            background: url('../img/pds-logo.gif') no-repeat 10px center @pds-blue;
-            min-height: 100px;
-            min-width: 100px;
-            padding: 5px;
-            margin-left: 25px;
-            box-sizing: content-box;
-            background-size: 80%;
-            margin-top: 15px;
-            &:hover,&:focus {
-                background-color: @pds-blue;    
-            }
-        }
-        .navbar-brand-name {
-            float: left;
-            line-height: 31px;
-            font-size: 28px;
-            padding: 23px 10px;
-            width: 100px;
-            color: @pds-light-blue;
-            font-weight: 900;
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
-    nav.navbar-collapse {
-        position: relative;
-        pointer-events: none;
-        ul.nav {
-            bottom: 0;
-            right: 0;
-            position: absolute;
-            pointer-events: auto;
-            a {
-                color: @pds-blue;
-                &:hover {
-                    background-color: #ccc;
-                }
-            }
-        }
-        &.in ul.nav, &.collapsing ul.nav {
-            position: initial;
-        }
-    }
-}
-
-// Newsletter signup
-
-#newsletter-container {
-    height: 120px;
-    overflow: hidden;
-    #newsletter-scroll {
-        position: relative;   
-        #newsletter-form {
-            margin-top: 90px;
-            height: 60px;
-            input {
-                font-size: 18px;
-                border: none;
-                margin: 7px 0;
-                border-radius: 0;
-                &[type=email] {
-                    color: #142452;
-                }
-                &[type=submit] {
-                    background: #f0b432;
-                    color: white;
-                    font-weight: 500;
-                    text-align: center;
-                    padding-right: 16px;
-                }
-            }
-            .form-horizontal .has-feedback .form-control-feedback {
-                margin: 7px 0;
-            }
-            .help-block {
-                color: #fff;
-            }
-        }
-    }
+  font-family: @roboto;
+  font-weight: 300;
 }
 
 // Footer
 
 footer.content-info {
-    padding-top: 80px;
+  padding-top: 80px;
+  h2 {
+    margin-left: 15px;
+    color: #fff;
+    font-size: 30px;
+    font-family: Roboto;
+  }
+  .container {
+    background-color: #eee;
+    .nav > li > a {
+      display: inline-block;
+      color: @pds-blue;
+      padding: 5px 15px;
+      &:hover {
+        background-color: #ccc;
+      }
+    }
+  }
+  #footer-contact {
+    padding: 20px 25px 10px;
+    background-color: #142452;
+    color: #fff;
     h2 {
-        margin-left: 15px;
-        color: #fff;
-        font-size: 30px;
-        font-family: Roboto;
+      margin-left: 0;
     }
-    .container {
-        background-color: #eee;
-        .nav > li > a {
-            display: inline-block;
-            color: @pds-blue;
-            padding: 5px 15px;
-            &:hover {
-                background-color: #ccc;
-            }
-        }
+    h3 {
+      font-family: Roboto;
+      color: #f0b432;
+      font-weight: bold;
+      font-size: 22px;
     }
-    #footer-newsletter {
-        background-color: #7786A4;
-        height: 120px;
-        color: #fff;
-        font-weight: 100;
-        .col-md-7 {
-            padding-left: 25px;
-            h2 {
-                padding-top: 10px;
-                margin-left: 0;
-            }
-        }
-        .col-md-5 {
-            padding-right: 25px;
-        }
-        button {
-            line-height: 60px;
-            border: none;
-            background-color: #f0b432;
-            font-weight: 700;
-            width: 100%;
-            font-size: 22px;
-            text-transform: uppercase;
-            padding: 0;
-            margin-top: 30px;
-        }
+    a {
+      color: #C4FFFE;
     }
-    #footer-contact {
-        padding: 20px 25px 10px;
-        background-color: #142452;
-        color: #fff;
-        h2 {
-            margin-left: 0;
-        }
-        h3 {
-            font-family: Roboto;
-            color: #f0b432;
-            font-weight: bold;
-            font-size: 22px;
-        }
-        a {
-            color: #C4FFFE;
-        }
-        .socicons {
-            margin-top: 20px;
-            .twitter-handle {
-                font-size: 22px;
-                font-family: Roboto;
-                display: inline-block;
-                height: 52px;
-                vertical-align: text-bottom;
-                line-height: 52px;
-            }
-            a {
-                color: #f0b432;
-                .socicon {
-                    margin-top: 20px;
-                    font-size: 44px;
-                    background-color: white;
-                    color: #142452;
-                    padding: 3px;
-                    border-radius: 5px;
-                    margin-right: 10px;
-                }
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-}
-
-// Home page
-
-#home-main {
-    margin: 0;
-    p {
-        font-size: 18px;
-    }
-    #welcome {
-        border-bottom: 1px solid #A5ACC1;
-        background: url('../img/Welcome_background_1170x340.jpg') no-repeat center center;
-        height: 340px;
-        color: #6C6C6C;
-        font-weight: 300;
-        margin: 0 -40px;
-        h1 {
-            font-family: 'Ubuntu';
-            font-weight: 900;
-            font-size: 32px;
-            color: #364773;
-            padding: 0 40px;
-            border: none;
-        }
-        div p {
-            padding: 0 25px 10px;
-            line-height: 22px;
-        }
-    }
-    #home-ctas {
-        padding-left: 40px;
-        padding-right: 40px;
-        a.home-cta {
-            margin-top: 60px;
-            margin-bottom: 40px;
-            background-repeat: no-repeat;
-            background-position: 0% 50%;
-            background-size: 100% auto;
-            line-height: 36px;
-            font-family: 'Ubuntu';
-            font-weight: 900;
-            font-size: 36px;
-            color: #fff;
-            height: 360px;
-            width: 50%;
-            display: table;
-            position: static;
-            text-align: center;
-            padding: 10px;
-            float: left;
-            &.home-solicitors {
-                background-image: url('../img/PDS Buttons_505x248.1.jpg');
-                border-right: 5px solid transparent;
-            }
-            &.home-advocacy {
-                background-image: url('../img/PDS Buttons_505x248.2.jpg');
-                border-left: 5px solid transparent;
-            }
-            .middle {
-                display: table-cell;
-                vertical-align: middle;
-                width: 100%;
-                position: static;
-                .inner {
-                    position: static;
-                    font-weight: bold;
-                    padding: 20% 5px;
-                }
-            }
-            &:hover {
-                text-decoration: none;
-                .inner {
-                    background-color: rgba(255,255,255,0.75);
-                }
-                &.home-solicitors {
-                    color: #142452;
-                }
-                &.home-advocacy {
-                    color: #f0b432;
-                }
-
-            }
-        }
-    }
-}
-
-// Page headers
-.advocate-pages {
-    
-    .advocate-phone {
-        display: block;
-    }
-    &.advocates {
-        #page-header {
-            background: url('../img/Extra_banner_1170x200.2.jpg') no-repeat top center;
-        }
-    }
-    &.about-us {
-        #page-header {
-            background: url('../img/Solicitors-Home_banner_1170x200.2.jpg') no-repeat top center;
-        }
-    }
-    &.our-advocates {
-        #page-header {
-            background: url('../img/Our-Locations-banner_1170x200.2.jpg') no-repeat top center;
-        }
-    }
-    &.contact-us {
-        #page-header {
-            background: url('../img/Contact_Us_banner_1170x200.2.jpg') no-repeat top center;
-        }
-    }
-}
-.solicitors-pages {
-    &.solicitors {
-        #page-header {
-            background: url('../img/Solicitors-Home_banner_1170x200.1.jpg') no-repeat top center;
-        }
-    }
-    &.about-us {
-        #page-header {
-            background: url('../img/Extra_banner_1170x200.1.jpg') no-repeat top center;
-        }
-    }
-    &.our-lawyers {
-        #page-header {
-            background: url('../img/Our_Locations_banner_1170x200.1.jpg') no-repeat top center;
-        }
-    }
-    &.our-locations {
-        #page-header {
-            background: url('../img/Contact_Us_banner_1170x200.1.jpg') no-repeat top center;
-        }
-    }
+  }
 }
 
 // Common page elements
 .page-header {
-    border-bottom: none;
-}
-#page-header {
-    background-size: 100% 100%;
+  border-bottom: none;
 }
 
 .advocate-pages {
-    h1 {
-        color: #142452;
-        border-bottom: 1px solid #f0b432;
-    }
-    h2 {
-        color: #142452;
-    }
-}
-.solicitors-pages {
-    h1 {
-        color: #f0b432;
-        border-bottom: 1px solid #142452;
-    }
-    h2 {
-        color: #f0b432;
-    }
-}
-#page-header {
-    height: 200px;
-    line-height: 200px;
-    font-family: Ubuntu;
-    font-size: 96px;
-    color: white;
-    margin: 0 -40px 20px;
-    font-weight: 300;
-    padding: 0 40px;
-}
-
-// Advocates homepage
-
-#advocates-slider-container {
+  h1 {
+    color: #142452;
     border-bottom: 1px solid #f0b432;
-    padding: 0 0 39px;
-}
-#advocates-slider {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    height: 190px;
-    .slide-image {
-/*        width: 25%;
-        float: left;*/
-        text-align: center;
-        img {
-            height: 190px;
-        }
-        .slide-info {
-            font-size: 14px;
-            text-align: left;
-            position: absolute;
-            bottom: -100%;
-            width: 242px;
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            padding: 5px;
-        }
-    }
-}
-#advocates-about {
-    margin-left: -15px;
-}
-#advocates-news {
-    background: #DFDFDF;
-    margin-top: 20px;
-    padding-right: 40px;
-    margin-left: 15px;
-    time {
-        font-weight: bold;
-    }
+  }
+  h2 {
+    color: #142452;
+  }
 }
 
-
-// Our Advocates page
-
-#advocates-container {
-    font-size: 14px;
-    article.advocate-bio {
-        height: 425px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #f0b432;
-        .advocate-picture {
-            width: 100%;
-            height: auto;
-        }
-        .advocate-name {
-            font-weight: bold;
-            font-size: 1.15em;
-            font-family: Ubuntu;
-            padding: 10px 0 5px;
-        }
-    }
-    #head-advocates {
-        article.advocate-bio {
-            height: 245px;
-            .advocate-name {
-                margin-top: 30px;
-                font-size: 1.3em;
-            }
-        }
-    }
-    a {
-        font-weight: 300;
-        padding: 5px 0;
-        margin: 5px 0;
-        display: block;
-    }
+.solicitors-pages {
+  h1 {
+    color: #f0b432;
+    border-bottom: 1px solid #142452;
+  }
+  h2 {
+    color: #f0b432;
+  }
 }
 
 // Location tables
-.page .content table {
-    width: 100%;
-    td {
-        padding: 0 10px;
-        vertical-align: top;
-    }
+table {
+  width: 100%;
+  td {
+    padding: 0 10px;
+    vertical-align: top;
+  }
 }

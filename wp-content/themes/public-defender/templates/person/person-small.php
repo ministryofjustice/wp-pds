@@ -25,7 +25,15 @@ foreach ($col_width as $bp => $size) {
   <a href="<?php echo $profile_link; ?>" title="See <?php echo esc_attr($name); ?>’s full profile">
   <?php endif; ?>
 
-    <img src="<?php echo $image['sizes']['advocate_slide_thumb']; ?>" alt="Photo of <?php echo esc_attr($name); ?>" class="person__photo">
+    <?php
+
+    $img = '<img src="' . $image['sizes']['person-small'] . '" alt="Photo of ' . esc_attr($name) . '" class="person__photo">';
+    $img_meta = wp_get_attachment_metadata($image['ID']);
+    $attachment_id = $image['ID'];
+    echo wp_image_add_srcset_and_sizes($img, $img_meta, $attachment_id);
+
+    ?>
+
     <div class="person__name"><?php echo $name; ?></div>
 
     <?php if (!empty($summary)): ?>

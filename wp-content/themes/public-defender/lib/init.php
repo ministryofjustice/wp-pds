@@ -25,9 +25,13 @@ function roots_setup() {
     add_theme_support('post-thumbnails');
 
     // Add custom image sizes
-    add_image_size('advocate_slide', 242, 190, true);
-    add_image_size('advocate_slide_thumb', 160, 190, true);
     add_image_size('deep_link', 600, 400, true);
+
+    add_image_size('person-small', 160, 190, true);
+    add_image_size('person-small_2x', 320, 380, true);
+
+    add_image_size('person-wide', 220, 260, true);
+    add_image_size('person-wide_2x', 440, 520, true);
 
     // Add HTML5 markup for captions
     // http://codex.wordpress.org/Function_Reference/add_theme_support#HTML5

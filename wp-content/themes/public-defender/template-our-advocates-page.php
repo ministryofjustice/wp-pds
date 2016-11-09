@@ -73,40 +73,6 @@ the_post();
     <div class="row">
         <?php
 
-        $non_qc_advocates_args = array(
-            'posts_per_page' => - 1,
-            'post_type'      => 'advocate',
-            'orderby' => array(
-                'advocate-call' => 'ASC',
-                'advocate-surname' => 'ASC',
-            ),
-            'meta_query'     => array(
-                array(
-                    'key'     => 'advocate-call',
-                    'type'    => 'NUMERIC',
-                    'value'   => '',
-                    'compare' => 'LIKE'
-                ),
-                array(
-                    'key'     => 'advocate-surname',
-                    'value'   => '',
-                    'compare' => 'LIKE'
-                )
-            ),
-            'tax_query'      => array(
-                array(
-                    'taxonomy' => 'advocate-type',
-                    'field'    => 'slug',
-                    'terms'    => array(
-                        'senior-higher-courts-advocates',
-                        'junior-higher-courts-advocates',
-                    ),
-                )
-            )
-        );
-
-        $non_qc_advocates = new WP_Query($non_qc_advocates_args);
-
         $types = array(
             'senior-higher-courts-advocates',
             'junior-higher-courts-advocates',

@@ -4,7 +4,14 @@
   <?php endif; ?>
 
     <div class="col-sm-4 col-xs-6">
-      <img src="<?php echo $image['sizes']['advocate_slide_thumb']; ?>" alt="Photo of <?php echo esc_attr($name); ?>" class="person__photo">
+      <?php
+
+      $img = '<img src="' . $image['sizes']['person-wide'] . '" alt="Photo of ' . esc_attr($name) . '" class="person__photo">';
+      $img_meta = wp_get_attachment_metadata($image['ID']);
+      $attachment_id = $image['ID'];
+      echo wp_image_add_srcset_and_sizes($img, $img_meta, $attachment_id);
+
+      ?>
     </div>
     <div class="col-sm-8 col-xs-6">
       <div class="person__name"><?php echo $name; ?></div>

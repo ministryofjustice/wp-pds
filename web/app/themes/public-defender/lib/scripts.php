@@ -20,14 +20,14 @@ function roots_scripts() {
      * The build task in Grunt renames production assets with a hash
      * Read the asset names from assets-manifest.json
      */
-    if (defined('WP_ENV') && WP_ENV === 'development') {
+    /*if (defined('WP_ENV') && WP_ENV === 'development') {
         $assets = array(
             'css' => '/assets/css/main.css',
             'js' => '/assets/js/scripts.js',
             'modernizr' => '/assets/vendor/modernizr/modernizr.js',
             'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js',
         );
-    } else {
+    } else {*/
         $get_assets = file_get_contents(get_template_directory() . '/assets/manifest.json');
         $assets = json_decode($get_assets, true);
         $assets = array(
@@ -36,7 +36,7 @@ function roots_scripts() {
             'modernizr' => '/assets/vendor/modernizr/modernizr.js',
             'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
         );
-    }
+    //}
 
     wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
 

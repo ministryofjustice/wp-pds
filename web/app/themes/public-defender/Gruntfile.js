@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 
   var jsFileList = [
     'assets/vendor/bootstrap/js/dropdown.js',
+    'assets/vendor/bootstrap/js/collapse.js',
     'assets/js/plugins/*.js',
     'assets/js/_*.js'
   ];

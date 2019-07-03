@@ -6,7 +6,7 @@ the_post();
 
 ?>
 <div id="page-header">
-  <h1>PDS Advocacy Unit</h1>
+  <h1>PDS Advocacy Team</h1>
 </div>
 
 <div class="row">

@@ -1,7 +1,7 @@
 <?php
 
 $title = array(
-  'advocates' => 'PDS Advocacy Unit',
+  'advocates' => 'PDS Advocacy Team',
   'solicitors' => 'PDS Solicitors',
 );
 

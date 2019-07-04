@@ -21,7 +21,7 @@
 
         <div class="col-md-5 col-sm-6 col-xs-12">
             <a href="<?php the_permalink($advocates_page); ?>" class="site-section-cta site-section-cta--advocates">
-                <div>PDS Advocacy Unit</div>
+                <div>PDS Advocacy Team</div>
             </a>
         </div>
     </div>

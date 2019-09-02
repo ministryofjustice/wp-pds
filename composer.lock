@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5c88699c073bb09244668ac9912064b",
+    "content-hash": "4815181805536df5b0f640c160be8fab",
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
@@ -645,6 +645,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/google-analytics-dashboard-for-wp/"
+        },
+        {
+            "name": "wpackagist-plugin/uk-cookie-consent",
+            "version": "2.3.14",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/uk-cookie-consent/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/uk-cookie-consent.zip?timestamp=1547651727"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/uk-cookie-consent/"
         }
     ],
     "packages-dev": [],

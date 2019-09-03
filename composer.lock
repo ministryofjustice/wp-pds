@@ -12,6 +12,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://composer.wp.dsd.io/dist/acf/advanced-custom-fields-pro/acf-advanced-custom-fields-pro-5.8.1.zip",
+                "reference": null,
                 "shasum": "1ba6174e31db0d3c2728d7bd5258c621d8eb9391"
             },
             "type": "wordpress-plugin"
@@ -256,7 +257,9 @@
             "version": "5.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/translation/core/5.2.2/en_GB.zip"
+                "url": "https://downloads.wordpress.org/translation/core/5.2.2/en_GB.zip",
+                "reference": null,
+                "shasum": null
             },
             "require": {
                 "koodimonni/composer-dropin-installer": ">=0.2.3"
@@ -602,7 +605,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip"
+                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip",
+                "reference": null,
+                "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -620,7 +625,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/fast-user-switching.zip?timestamp=1551360022"
+                "url": "https://downloads.wordpress.org/plugin/fast-user-switching.zip?timestamp=1551360022",
+                "reference": null,
+                "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -638,7 +645,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.5.3.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-analytics-dashboard-for-wp.5.3.9.zip",
+                "reference": null,
+                "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -656,7 +665,9 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/uk-cookie-consent.zip?timestamp=1547651727"
+                "url": "https://downloads.wordpress.org/plugin/uk-cookie-consent.zip?timestamp=1547651727",
+                "reference": null,
+                "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"

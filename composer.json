@@ -58,13 +58,15 @@
         "wpackagist-plugin/fast-user-switching": "*",
         "ministryofjustice/wp-user-roles": "*",
         "wpackagist-plugin/uk-cookie-consent": "*",
-        "wpackagist-plugin/classic-editor": "*"
+        "wpackagist-plugin/classic-editor": "*",
+        "ministryofjustice/wp-moj-components": "*"
     },
     "require-dev": {},
     "extra": {
         "installer-paths": {
             "web/app/mu-plugins/{$name}/": [
-                "type:wordpress-muplugin"
+                "type:wordpress-muplugin",
+                "ministryofjustice/wp-moj-components"
             ],
             "web/app/plugins/{$name}/": [
                 "type:wordpress-plugin"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4815181805536df5b0f640c160be8fab",
+    "content-hash": "ccbd55b10dda531fd3bd6b3f40a6c69f",
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
@@ -315,6 +315,37 @@
             ],
             "description": "Install packages or a few files from packages into custom paths without overwriting existing stuff.",
             "time": "2018-02-04T10:52:01+00:00"
+        },
+        {
+            "name": "ministryofjustice/wp-moj-components",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ministryofjustice/wp-moj-components.git",
+                "reference": "7c61422441e4618a61a6e55bfdcf08fa33f7cba3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.wp.dsd.io/dist/ministryofjustice/wp-moj-components/ministryofjustice-wp-moj-components-7c61422441e4618a61a6e55bfdcf08fa33f7cba3-zip-abb6ee.zip",
+                "reference": "7c61422441e4618a61a6e55bfdcf08fa33f7cba3",
+                "shasum": "b6dbb0c1c72ea3682ce4b122269299c4ef362934"
+            },
+            "require": {
+                "composer/installers": "^1.0"
+            },
+            "type": "wordpress-plugin",
+            "authors": [
+                {
+                    "name": "Damien Wilson",
+                    "email": "damien.wilson@digital.justice.gov.uk"
+                }
+            ],
+            "description": "A plugin to introduce global functions to a collection of WP sites",
+            "support": {
+                "source": "https://github.com/ministryofjustice/wp-moj-components/tree/1.1.3",
+                "issues": "https://github.com/ministryofjustice/wp-moj-components/issues"
+            },
+            "time": "2019-08-30T09:11:51+00:00"
         },
         {
             "name": "ministryofjustice/wp-rewrite-media-to-s3",

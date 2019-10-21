@@ -18,6 +18,5 @@
         <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
 
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,700|Roboto:300,700" rel="stylesheet" type="text/css">
         <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
     </head>

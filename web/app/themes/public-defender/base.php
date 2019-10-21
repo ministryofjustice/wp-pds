@@ -1,4 +1,3 @@
-<?php get_template_part('templates/head'); ?>
 <?php
 
 $class = array();
@@ -28,7 +27,7 @@ if ($post && $post->post_type == 'page') {
 
     <?php
     do_action('get_header');
-    get_template_part('templates/header');
+    get_header();
     ?>
 
     <article class="wrap container" role="document">
@@ -39,7 +38,7 @@ if ($post && $post->post_type == 'page') {
       </div>
     </article><!-- /.wrap -->
 
-    <?php get_template_part('templates/footer'); ?>
+    <?php get_footer(); ?>
 
 </body>
 </html>

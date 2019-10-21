@@ -1,3 +1,4 @@
+<?php get_template_part('head'); ?>
 <header class="site-header navbar navbar-default navbar-static-top" role="banner">
     <div class="container">
         <div class="navbar-header">

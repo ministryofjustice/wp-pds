@@ -57,9 +57,9 @@
         "acf/advanced-custom-fields-pro": "*",
         "wpackagist-plugin/fast-user-switching": "*",
         "ministryofjustice/wp-user-roles": "*",
-        "wpackagist-plugin/uk-cookie-consent": "*",
         "wpackagist-plugin/classic-editor": "*",
-        "ministryofjustice/wp-moj-components": "*"
+        "ministryofjustice/wp-moj-components": "*",
+        "ministryofjustice/cookie-compliance-for-wordpress": "*"
     },
     "require-dev": {},
     "extra": {

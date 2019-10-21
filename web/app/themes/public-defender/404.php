@@ -1,4 +1,4 @@
-<?php get_template_part('templates/page', 'header'); ?>
+<?php get_header(); ?>
 
 <p class="lead">Sorry, we couldn't find the page that you're looking for.</p>
 

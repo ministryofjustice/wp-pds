@@ -25,9 +25,11 @@ function roots_scripts() {
     $assets = array(
         'css' => '/dist' . $assets['/css/main.min.css'],
         'js' => '/dist' . $assets['/js/main.min.js'],
-        'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
+        'jquery' => '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js',
+        'roboto' => 'https://fonts.googleapis.com/css?family=Ubuntu:300,700|Roboto:300,700&display=swap'
     );
 
+    wp_enqueue_style('g_font_css', $assets['roboto'], false, null);
     wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
 
     /**

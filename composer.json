@@ -68,6 +68,7 @@
         "installer-paths": {
             "web/app/mu-plugins/{$name}/": [
                 "type:wordpress-muplugin",
+                "ministryofjustice/wp-user-roles",
                 "ministryofjustice/wp-moj-components"
             ],
             "web/app/plugins/{$name}/": [

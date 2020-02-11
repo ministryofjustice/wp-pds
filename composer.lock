@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02e873f7982b5b066c931a4817d3d490",
+    "content-hash": "d2110749b5be96f30b2b1d4530d84126",
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
@@ -357,17 +357,17 @@
         },
         {
             "name": "ministryofjustice/wp-moj-components",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ministryofjustice/wp-moj-components.git",
-                "reference": "e761d303414e29983c9e0317d94eeb67b6bd03e9"
+                "reference": "e53c3a9c7b7e4894bc2e42ec789fa5731c5c2ac9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://composer.wp.dsd.io/dist/ministryofjustice/wp-moj-components/ministryofjustice-wp-moj-components-e761d303414e29983c9e0317d94eeb67b6bd03e9-zip-ff939d.zip",
-                "reference": "e761d303414e29983c9e0317d94eeb67b6bd03e9",
-                "shasum": "b1d9c72c1dce889d30a87572b36fc0496e40f13d"
+                "url": "https://composer.wp.dsd.io/dist/ministryofjustice/wp-moj-components/ministryofjustice-wp-moj-components-e53c3a9c7b7e4894bc2e42ec789fa5731c5c2ac9-zip-3ff57b.zip",
+                "reference": "e53c3a9c7b7e4894bc2e42ec789fa5731c5c2ac9",
+                "shasum": "7400d6802266fade8a168705ea43c612aa81e409"
             },
             "require": {
                 "composer/installers": "^1.0"
@@ -402,10 +402,10 @@
             ],
             "description": "A plugin to introduce global functions to a collection of WP sites",
             "support": {
-                "source": "https://github.com/ministryofjustice/wp-moj-components/tree/3.0.1",
+                "source": "https://github.com/ministryofjustice/wp-moj-components/tree/3.0.2",
                 "issues": "https://github.com/ministryofjustice/wp-moj-components/issues"
             },
-            "time": "2019-11-12T23:26:43+00:00"
+            "time": "2020-02-07T12:21:01+00:00"
         },
         {
             "name": "ministryofjustice/wp-rewrite-media-to-s3",

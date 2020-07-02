@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "608f2fc215dca014d4548b7875a10571",
+    "content-hash": "9ff2f3e2c424fb96aa504be2b2f0566e",
     "packages": [
         {
             "name": "acf/advanced-custom-fields-pro",
@@ -359,17 +359,17 @@
         },
         {
             "name": "ministryofjustice/wp-moj-components",
-            "version": "3.1.2",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ministryofjustice/wp-moj-components.git",
-                "reference": "df36b85ae54e0fd49ccde37cda7b06825b4c6595"
+                "reference": "1f728c926cedc5afdea53272e7b97a4fab3dc511"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://composer.wp.dsd.io/dist/ministryofjustice/wp-moj-components/ministryofjustice-wp-moj-components-df36b85ae54e0fd49ccde37cda7b06825b4c6595-zip-6fef8c.zip",
-                "reference": "df36b85ae54e0fd49ccde37cda7b06825b4c6595",
-                "shasum": "e58161844aaf6786dbcc870dbc9c2d683ebbf76c"
+                "url": "https://composer.wp.dsd.io/dist/ministryofjustice/wp-moj-components/ministryofjustice-wp-moj-components-1f728c926cedc5afdea53272e7b97a4fab3dc511-zip-bac561.zip",
+                "reference": "1f728c926cedc5afdea53272e7b97a4fab3dc511",
+                "shasum": "91a18cb80496bd67dee0e9ee6c3595ef4afb6924"
             },
             "require": {
                 "composer/installers": "^1.0"
@@ -404,10 +404,10 @@
             ],
             "description": "A plugin to introduce global functions to a collection of WP sites",
             "support": {
-                "source": "https://github.com/ministryofjustice/wp-moj-components/tree/3.1.2",
+                "source": "https://github.com/ministryofjustice/wp-moj-components/tree/3.2.2",
                 "issues": "https://github.com/ministryofjustice/wp-moj-components/issues"
             },
-            "time": "2020-05-19T10:00:26+00:00"
+            "time": "2020-07-02T09:16:23+00:00"
         },
         {
             "name": "ministryofjustice/wp-rewrite-media-to-s3",
@@ -581,16 +581,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.17.0",
+            "version": "v1.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9"
+                "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
-                "reference": "e94c8b1bbe2bc77507a1056cdb06451c75b427f9",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
+                "reference": "2edd75b8b35d62fd3eeabba73b26b8f1f60ce13d",
                 "shasum": ""
             },
             "require": {
@@ -603,6 +603,10 @@
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.17-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
                 }
             },
             "autoload": {
@@ -635,7 +639,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-05-12T16:14:59+00:00"
+            "time": "2020-06-06T08:46:27+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -734,24 +738,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/classic-editor/"
-        },
-        {
-            "name": "wpackagist-plugin/user-switching",
-            "version": "1.5.4",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/user-switching/",
-                "reference": "tags/1.5.4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/user-switching.1.5.4.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/user-switching/"
         },
         {
             "name": "wpackagist-plugin/wp-analytify",

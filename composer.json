@@ -56,7 +56,7 @@
         "roots/wp-password-bcrypt": "*",
         "wpackagist-plugin/wp-analytify":"*",
         "wpackagist-plugin/analytify-analytics-dashboard-widget":"*",
-        "ministryofjustice/wp-rewrite-media-to-s3": "^0.1.1",
+        "ministryofjustice/wp-rewrite-media-to-s3": "*",
         "acf/advanced-custom-fields-pro": "*",
         "ministryofjustice/wp-user-roles": "*",
         "wpackagist-plugin/classic-editor": "*",
